@@ -1,0 +1,164 @@
+[1] Mon 17Nov03 13:28:05 - Starting FTP Server...
+[1] Mon 17Nov03 13:28:09 - FTP Server listening on port number 21, IP 10.108.5.122
+[5] Mon 17Nov03 13:34:48 - (000001) Connected to 10.108.5.254 (Local address 10.108.5.122)
+[5] Mon 17Nov03 13:34:48 - (000001) ANONYMOUS logged in, password: LIBXML@VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 13:34:48 - (000001) Closing connection for user ANONYMOUS (00:00:00 connected)
+[5] Mon 17Nov03 13:44:25 - (000002) Connected to 10.108.5.254 (Local address 10.108.5.122)
+[5] Mon 17Nov03 13:44:25 - (000002) IP-Name: IF5.VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 13:44:25 - (000002) ANONYMOUS logged in, password: LIBXML@VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 13:44:25 - (000002) Closing connection for user ANONYMOUS (00:00:00 connected)
+[5] Mon 17Nov03 13:53:29 - (000003) Connected to 10.108.4.106 (Local address 10.108.5.122)
+[5] Mon 17Nov03 13:53:29 - (000003) IP-Name: F.VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 13:53:29 - (000003) ANONYMOUS logged in, password: 
+[5] Mon 17Nov03 13:53:40 - (000003) Closing connection for user ANONYMOUS (00:00:11 connected)
+[5] Mon 17Nov03 13:54:40 - (000004) Connected to 10.108.5.254 (Local address 10.108.5.122)
+[5] Mon 17Nov03 13:54:40 - (000004) IP-Name: IF5.VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 13:54:40 - (000004) ANONYMOUS logged in, password: LIBXML@VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 13:54:40 - (000004) Closing connection for user ANONYMOUS (00:00:00 connected)
+[5] Mon 17Nov03 13:59:03 - (000005) Connected to 10.110.5.15 (Local address 10.108.5.122)
+[5] Mon 17Nov03 13:59:03 - (000005) IP-Name: XCAT.X-TEN.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 13:59:03 - (000005) ANONYMOUS logged in, password: 
+[3] Mon 17Nov03 13:59:34 - (000005) Sending file d:\[linkin park]\winamp_skins\lp001.wsz
+[3] Mon 17Nov03 13:59:34 - (000005) Sent file d:\[linkin park]\winamp_skins\lp001.wsz successfully (165 Kb/sec - 95158 bytes)
+[3] Mon 17Nov03 13:59:34 - (000005) Sending file d:\[linkin park]\winamp_skins\lp002.wsz
+[3] Mon 17Nov03 13:59:34 - (000005) Sent file d:\[linkin park]\winamp_skins\lp002.wsz successfully (704 Kb/sec - 103074 bytes)
+[3] Mon 17Nov03 13:59:34 - (000005) Sending file d:\[linkin park]\winamp_skins\lp003.wsz
+[3] Mon 17Nov03 13:59:34 - (000005) Sent file d:\[linkin park]\winamp_skins\lp003.wsz successfully (949 Kb/sec - 91301 bytes)
+[3] Mon 17Nov03 13:59:35 - (000005) Sending file d:\[linkin park]\winamp_skins\lp004.wsz
+[3] Mon 17Nov03 13:59:35 - (000005) Sent file d:\[linkin park]\winamp_skins\lp004.wsz successfully (1205 Kb/sec - 87580 bytes)
+[3] Mon 17Nov03 13:59:35 - (000005) Sending file d:\[linkin park]\winamp_skins\lp005.wsz
+[3] Mon 17Nov03 13:59:35 - (000005) Sent file d:\[linkin park]\winamp_skins\lp005.wsz successfully (1171 Kb/sec - 173843 bytes)
+[3] Mon 17Nov03 13:59:35 - (000005) Sending file d:\[linkin park]\winamp_skins\lp006.wsz
+[3] Mon 17Nov03 13:59:35 - (000005) Sent file d:\[linkin park]\winamp_skins\lp006.wsz successfully (847 Kb/sec - 125791 bytes)
+[3] Mon 17Nov03 13:59:35 - (000005) Sending file d:\[linkin park]\winamp_skins\lp007.wsz
+[3] Mon 17Nov03 13:59:35 - (000005) Sent file d:\[linkin park]\winamp_skins\lp007.wsz successfully (917 Kb/sec - 104225 bytes)
+[3] Mon 17Nov03 13:59:35 - (000005) Sending file d:\[linkin park]\winamp_skins\lp008.wsz
+[3] Mon 17Nov03 13:59:36 - (000005) Sent file d:\[linkin park]\winamp_skins\lp008.wsz successfully (487 Kb/sec - 138680 bytes)
+[3] Mon 17Nov03 13:59:36 - (000005) Sending file d:\[linkin park]\winamp_skins\lp009.wsz
+[3] Mon 17Nov03 13:59:36 - (000005) Sent file d:\[linkin park]\winamp_skins\lp009.wsz successfully (727 Kb/sec - 196436 bytes)
+[3] Mon 17Nov03 13:59:36 - (000005) Sending file d:\[linkin park]\winamp_skins\lp010.wsz
+[3] Mon 17Nov03 13:59:37 - (000005) Sent file d:\[linkin park]\winamp_skins\lp010.wsz successfully (454 Kb/sec - 307103 bytes)
+[3] Mon 17Nov03 13:59:37 - (000005) Sending file d:\[linkin park]\winamp_skins\lp011.wsz
+[3] Mon 17Nov03 13:59:37 - (000005) Sent file d:\[linkin park]\winamp_skins\lp011.wsz successfully (1969 Kb/sec - 32261 bytes)
+[3] Mon 17Nov03 13:59:37 - (000005) Sending file d:\[linkin park]\winamp_skins\lp012.wsz
+[3] Mon 17Nov03 13:59:39 - (000005) Sent file d:\[linkin park]\winamp_skins\lp012.wsz successfully (38.4 Kb/sec - 73373 bytes)
+[3] Mon 17Nov03 13:59:39 - (000005) Sending file d:\[linkin park]\winamp_skins\lp013.wsz
+[3] Mon 17Nov03 13:59:42 - (000005) Sent file d:\[linkin park]\winamp_skins\lp013.wsz successfully (81.6 Kb/sec - 265459 bytes)
+[3] Mon 17Nov03 13:59:43 - (000005) Sending file d:\[linkin park]\winamp_skins\lp014.wsz
+[3] Mon 17Nov03 13:59:43 - (000005) Sent file d:\[linkin park]\winamp_skins\lp014.wsz successfully (1022 Kb/sec - 58589 bytes)
+[3] Mon 17Nov03 13:59:43 - (000005) Sending file d:\[linkin park]\winamp_skins\lp015.wsz
+[3] Mon 17Nov03 13:59:48 - (000005) Sent file d:\[linkin park]\winamp_skins\lp015.wsz successfully (61.7 Kb/sec - 342243 bytes)
+[3] Mon 17Nov03 13:59:48 - (000005) Sending file d:\[linkin park]\winamp_skins\lp016.wsz
+[3] Mon 17Nov03 13:59:48 - (000005) Sent file d:\[linkin park]\winamp_skins\lp016.wsz successfully (962 Kb/sec - 379090 bytes)
+[3] Mon 17Nov03 13:59:49 - (000005) Sending file d:\[linkin park]\winamp_skins\lp017.wsz
+[3] Mon 17Nov03 13:59:54 - (000005) Sent file d:\[linkin park]\winamp_skins\lp017.wsz successfully (23.0 Kb/sec - 123358 bytes)
+[3] Mon 17Nov03 13:59:54 - (000005) Sending file d:\[linkin park]\winamp_skins\lp018.wsz
+[3] Mon 17Nov03 13:59:54 - (000005) Sent file d:\[linkin park]\winamp_skins\lp018.wsz successfully (922 Kb/sec - 83043 bytes)
+[3] Mon 17Nov03 13:59:54 - (000005) Sending file d:\[linkin park]\winamp_skins\lp019.wsz
+[3] Mon 17Nov03 13:59:59 - (000005) Sent file d:\[linkin park]\winamp_skins\lp019.wsz successfully (27.9 Kb/sec - 153563 bytes)
+[3] Mon 17Nov03 13:59:59 - (000005) Sending file d:\[linkin park]\winamp_skins\lp020.wsz
+[3] Mon 17Nov03 14:00:00 - (000005) Sent file d:\[linkin park]\winamp_skins\lp020.wsz successfully (1160 Kb/sec - 405149 bytes)
+[3] Mon 17Nov03 14:00:00 - (000005) Sending file d:\[linkin park]\winamp_skins\lp021.wsz
+[3] Mon 17Nov03 14:00:00 - (000005) Sent file d:\[linkin park]\winamp_skins\lp021.wsz successfully (1003 Kb/sec - 85241 bytes)
+[3] Mon 17Nov03 14:00:00 - (000005) Sending file d:\[linkin park]\winamp_skins\lp022.wsz
+[3] Mon 17Nov03 14:00:01 - (000005) Sent file d:\[linkin park]\winamp_skins\lp022.wsz successfully (522 Kb/sec - 350961 bytes)
+[3] Mon 17Nov03 14:00:01 - (000005) Sending file d:\[linkin park]\winamp_skins\lp023.wsz
+[3] Mon 17Nov03 14:00:01 - (000005) Sent file d:\[linkin park]\winamp_skins\lp023.wsz successfully (1165 Kb/sec - 238492 bytes)
+[3] Mon 17Nov03 14:00:01 - (000005) Sending file d:\[linkin park]\winamp_skins\lp024.wsz
+[3] Mon 17Nov03 14:00:01 - (000005) Sent file d:\[linkin park]\winamp_skins\lp024.wsz successfully (1853 Kb/sec - 32261 bytes)
+[3] Mon 17Nov03 14:00:01 - (000005) Sending file d:\[linkin park]\winamp_skins\lp025.wsz
+[3] Mon 17Nov03 14:00:01 - (000005) Sent file d:\[linkin park]\winamp_skins\lp025.wsz successfully (696 Kb/sec - 189450 bytes)
+[3] Mon 17Nov03 14:00:01 - (000005) Sending file d:\[linkin park]\winamp_skins\lp026.wsz
+[3] Mon 17Nov03 14:00:02 - (000005) Sent file d:\[linkin park]\winamp_skins\lp026.wsz successfully (1074 Kb/sec - 306817 bytes)
+[3] Mon 17Nov03 14:00:02 - (000005) Sending file d:\[linkin park]\winamp_skins\lp027.wsz
+[3] Mon 17Nov03 14:00:07 - (000005) Sent file d:\[linkin park]\winamp_skins\lp027.wsz successfully (36.7 Kb/sec - 197823 bytes)
+[3] Mon 17Nov03 14:00:07 - (000005) Sending file d:\[linkin park]\winamp_skins\lp028.wsz
+[3] Mon 17Nov03 14:00:07 - (000005) Sent file d:\[linkin park]\winamp_skins\lp028.wsz successfully (819 Kb/sec - 283638 bytes)
+[3] Mon 17Nov03 14:00:08 - (000005) Sending file d:\[linkin park]\winamp_skins\lp029.wsz
+[3] Mon 17Nov03 14:00:08 - (000005) Sent file d:\[linkin park]\winamp_skins\lp029.wsz successfully (1161 Kb/sec - 254314 bytes)
+[3] Mon 17Nov03 14:00:08 - (000005) Sending file d:\[linkin park]\winamp_skins\lp030.wsz
+[3] Mon 17Nov03 14:00:08 - (000005) Sent file d:\[linkin park]\winamp_skins\lp030.wsz successfully (627 Kb/sec - 141307 bytes)
+[3] Mon 17Nov03 14:03:29 - (000005) Sending file d:\[linkin park]\songs\other\dedicated.mp3
+[3] Mon 17Nov03 14:04:25 - (000005) Sent file d:\[linkin park]\songs\other\dedicated.mp3 successfully (80.2 Kb/sec - 4595712 bytes)
+[3] Mon 17Nov03 14:04:25 - (000005) Sending file d:\[linkin park]\songs\other\it's going down.mp3
+[5] Mon 17Nov03 14:04:29 - (000006) Connected to 10.108.5.254 (Local address 10.108.5.122)
+[5] Mon 17Nov03 14:04:29 - (000006) IP-Name: IF5.VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 14:04:29 - (000006) ANONYMOUS logged in, password: LIBXML@VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 14:04:29 - (000006) Closing connection for user ANONYMOUS (00:00:00 connected)
+[3] Mon 17Nov03 14:05:22 - (000005) Sent file d:\[linkin park]\songs\other\it's going down.mp3 successfully (87.2 Kb/sec - 5103616 bytes)
+[3] Mon 17Nov03 14:05:22 - (000005) Sending file d:\[linkin park]\songs\other\karma killer.mp3
+[3] Mon 17Nov03 14:05:56 - (000005) Sent file d:\[linkin park]\songs\other\karma killer.mp3 successfully (114 Kb/sec - 3981312 bytes)
+[3] Mon 17Nov03 14:05:56 - (000005) Sending file d:\[linkin park]\songs\other\my own summer.mp3
+[3] Mon 17Nov03 14:07:14 - (000005) Sent file d:\[linkin park]\songs\other\my own summer.mp3 successfully (82.2 Kb/sec - 6522880 bytes)
+[3] Mon 17Nov03 14:07:14 - (000005) Sending file d:\[linkin park]\songs\other\my_december.mp3
+[3] Mon 17Nov03 14:07:51 - (000005) Sent file d:\[linkin park]\songs\other\my_december.mp3 successfully (164 Kb/sec - 6238208 bytes)
+[3] Mon 17Nov03 14:07:51 - (000005) Sending file d:\[linkin park]\songs\other\system.mp3
+[3] Mon 17Nov03 14:08:17 - (000005) Sent file d:\[linkin park]\songs\other\system.mp3 successfully (183 Kb/sec - 4811673 bytes)
+[3] Mon 17Nov03 14:08:17 - (000005) Sending file d:\[linkin park]\songs\other\vertical limit.mp3
+[3] Mon 17Nov03 14:09:14 - (000005) Sent file d:\[linkin park]\songs\other\vertical limit.mp3 successfully (111 Kb/sec - 6535168 bytes)
+[5] Mon 17Nov03 14:09:49 - (000008) Connected to 10.108.5.254 (Local address 10.108.5.122)
+[5] Mon 17Nov03 14:09:49 - (000008) IP-Name: IF5.VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 14:09:49 - (000008) ANONYMOUS logged in, password: TERA@VIII
+[5] Mon 17Nov03 14:09:54 - (000008) Closing connection for user ANONYMOUS (00:00:05 connected)
+[3] Mon 17Nov03 14:12:45 - (000005) Sending file d:\[linkin park]\wallpapers\001.jpg
+[3] Mon 17Nov03 14:12:45 - (000005) Sent file d:\[linkin park]\wallpapers\001.jpg successfully (568 Kb/sec - 59891 bytes)
+[3] Mon 17Nov03 14:12:45 - (000005) Sending file d:\[linkin park]\wallpapers\001_.jpg
+[3] Mon 17Nov03 14:12:45 - (000005) Sent file d:\[linkin park]\wallpapers\001_.jpg successfully (1076 Kb/sec - 187288 bytes)
+[3] Mon 17Nov03 14:12:45 - (000005) Sending file d:\[linkin park]\wallpapers\002.jpg
+[3] Mon 17Nov03 14:12:46 - (000005) Sent file d:\[linkin park]\wallpapers\002.jpg successfully (783 Kb/sec - 96992 bytes)
+[3] Mon 17Nov03 14:12:46 - (000005) Sending file d:\[linkin park]\wallpapers\002_.jpg
+[3] Mon 17Nov03 14:12:46 - (000005) Sent file d:\[linkin park]\wallpapers\002_.jpg successfully (1569 Kb/sec - 48198 bytes)
+[3] Mon 17Nov03 14:12:46 - (000005) Sending file d:\[linkin park]\wallpapers\003.jpg
+[3] Mon 17Nov03 14:12:46 - (000005) Sent file d:\[linkin park]\wallpapers\003.jpg successfully (1546 Kb/sec - 42752 bytes)
+[3] Mon 17Nov03 14:12:46 - (000005) Sending file d:\[linkin park]\wallpapers\02x1024x768.jpg
+[3] Mon 17Nov03 14:12:46 - (000005) Sent file d:\[linkin park]\wallpapers\02x1024x768.jpg successfully (1248 Kb/sec - 43437 bytes)
+[3] Mon 17Nov03 14:12:46 - (000005) Sending file d:\[linkin park]\wallpapers\1024-01.jpg
+[3] Mon 17Nov03 14:12:46 - (000005) Sent file d:\[linkin park]\wallpapers\1024-01.jpg successfully (1827 Kb/sec - 28070 bytes)
+[3] Mon 17Nov03 14:12:47 - (000005) Sending file d:\[linkin park]\wallpapers\1024-02.jpg
+[3] Mon 17Nov03 14:12:47 - (000005) Sent file d:\[linkin park]\wallpapers\1024-02.jpg successfully (1044 Kb/sec - 150724 bytes)
+[3] Mon 17Nov03 14:12:47 - (000005) Sending file d:\[linkin park]\wallpapers\1024-03.jpg
+[3] Mon 17Nov03 14:12:47 - (000005) Sent file d:\[linkin park]\wallpapers\1024-03.jpg successfully (927 Kb/sec - 176595 bytes)
+[3] Mon 17Nov03 14:12:47 - (000005) Sending file d:\[linkin park]\wallpapers\1024-04.jpg
+[3] Mon 17Nov03 14:12:47 - (000005) Sent file d:\[linkin park]\wallpapers\1024-04.jpg successfully (787 Kb/sec - 81364 bytes)
+[3] Mon 17Nov03 14:12:47 - (000005) Sending file d:\[linkin park]\wallpapers\1024-05.jpg
+[3] Mon 17Nov03 14:12:47 - (000005) Sent file d:\[linkin park]\wallpapers\1024-05.jpg successfully (737 Kb/sec - 104142 bytes)
+[3] Mon 17Nov03 14:12:48 - (000005) Sending file d:\[linkin park]\wallpapers\1024-08.jpg
+[3] Mon 17Nov03 14:12:53 - (000005) Sent file d:\[linkin park]\wallpapers\1024-08.jpg successfully (15.4 Kb/sec - 83599 bytes)
+[3] Mon 17Nov03 14:12:53 - (000005) Sending file d:\[linkin park]\wallpapers\1024-16.jpg
+[3] Mon 17Nov03 14:12:56 - (000005) Sent file d:\[linkin park]\wallpapers\1024-16.jpg successfully (31.6 Kb/sec - 94989 bytes)
+[3] Mon 17Nov03 14:12:56 - (000005) Sending file d:\[linkin park]\wallpapers\1024-17.jpg
+[3] Mon 17Nov03 14:12:58 - (000005) Sent file d:\[linkin park]\wallpapers\1024-17.jpg successfully (37.3 Kb/sec - 71029 bytes)
+[3] Mon 17Nov03 14:12:58 - (000005) Sending file d:\[linkin park]\wallpapers\1024-19.jpg
+[3] Mon 17Nov03 14:12:58 - (000005) Sent file d:\[linkin park]\wallpapers\1024-19.jpg successfully (1485 Kb/sec - 25855 bytes)
+[3] Mon 17Nov03 14:12:59 - (000005) Sending file d:\[linkin park]\wallpapers\1024-20.jpg
+[3] Mon 17Nov03 14:12:59 - (000005) Sent file d:\[linkin park]\wallpapers\1024-20.jpg successfully (1163 Kb/sec - 89343 bytes)
+[3] Mon 17Nov03 14:12:59 - (000005) Sending file d:\[linkin park]\wallpapers\1024-21.jpg
+[3] Mon 17Nov03 14:12:59 - (000005) Sent file d:\[linkin park]\wallpapers\1024-21.jpg successfully (1033 Kb/sec - 72967 bytes)
+[3] Mon 17Nov03 14:12:59 - (000005) Sending file d:\[linkin park]\wallpapers\1024-23.jpg
+[3] Mon 17Nov03 14:12:59 - (000005) Sent file d:\[linkin park]\wallpapers\1024-23.jpg successfully (1099 Kb/sec - 88876 bytes)
+[3] Mon 17Nov03 14:12:59 - (000005) Sending file d:\[linkin park]\wallpapers\1024-24.jpg
+[3] Mon 17Nov03 14:12:59 - (000005) Sent file d:\[linkin park]\wallpapers\1024-24.jpg successfully (435 Kb/sec - 120606 bytes)
+[3] Mon 17Nov03 14:12:59 - (000005) Sending file d:\[linkin park]\wallpapers\1024-25.jpg
+[3] Mon 17Nov03 14:13:00 - (000005) Sent file d:\[linkin park]\wallpapers\1024-25.jpg successfully (994 Kb/sec - 42764 bytes)
+[3] Mon 17Nov03 14:13:00 - (000005) Sending file d:\[linkin park]\wallpapers\1024-26.jpg
+[3] Mon 17Nov03 14:13:00 - (000005) Sent file d:\[linkin park]\wallpapers\1024-26.jpg successfully (1184 Kb/sec - 196407 bytes)
+[3] Mon 17Nov03 14:13:00 - (000005) Sending file d:\[linkin park]\wallpapers\1024-27.jpg
+[3] Mon 17Nov03 14:13:00 - (000005) Sent file d:\[linkin park]\wallpapers\1024-27.jpg successfully (1163 Kb/sec - 36907 bytes)
+[3] Mon 17Nov03 14:13:00 - (000005) Sending file d:\[linkin park]\wallpapers\1024-28.jpg
+[3] Mon 17Nov03 14:13:00 - (000005) Sent file d:\[linkin park]\wallpapers\1024-28.jpg successfully (1252 Kb/sec - 44856 bytes)
+[3] Mon 17Nov03 14:13:01 - (000005) Sending file d:\[linkin park]\wallpapers\1024-29.jpg
+[3] Mon 17Nov03 14:13:01 - (000005) Sent file d:\[linkin park]\wallpapers\1024-29.jpg successfully (913 Kb/sec - 71973 bytes)
+[5] Mon 17Nov03 14:14:41 - (000009) Connected to 10.108.5.254 (Local address 10.108.5.122)
+[5] Mon 17Nov03 14:14:41 - (000009) IP-Name: IF5.VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 14:14:41 - (000009) ANONYMOUS logged in, password: LIBXML@VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 14:14:41 - (000009) Closing connection for user ANONYMOUS (00:00:00 connected)
+[5] Mon 17Nov03 14:21:04 - (000005) Closing connection for user ANONYMOUS (00:22:01 connected)
+[5] Mon 17Nov03 14:24:39 - (000010) Connected to 10.108.5.254 (Local address 10.108.5.122)
+[5] Mon 17Nov03 14:24:39 - (000010) ANONYMOUS logged in, password: LIBXML@VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 14:24:39 - (000010) IP-Name: IF5.VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 14:24:39 - (000010) Closing connection for user ANONYMOUS (00:00:00 connected)
+[5] Mon 17Nov03 14:34:26 - (000011) Connected to 10.108.5.254 (Local address 10.108.5.122)
+[5] Mon 17Nov03 14:34:26 - (000011) IP-Name: IF5.VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 14:34:26 - (000011) ANONYMOUS logged in, password: LIBXML@VIII.NTU-KPI.KIEV.UA
+[5] Mon 17Nov03 14:34:26 - (000011) Closing connection for user ANONYMOUS (00:00:00 connected)
+[1] Mon 17Nov03 14:35:13 - FTP server going down...
