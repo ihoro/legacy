@@ -1,0 +1,2 @@
+const
+      SizeMaxLine = 23;
