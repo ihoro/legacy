@@ -1,0 +1,40 @@
+package OSC_BMPButton;
+
+{$R *.res}
+{$R 'BMPButton.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'OIVSoftComponents - TBMPButton'}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl;
+
+contains
+  BMPButton in 'BMPButton.pas',
+  OSCReg in 'OSCReg.pas',
+  BMPButtonPE in 'BMPButtonPE.pas',
+  BMPButtonCE in 'BMPButtonCE.pas',
+  BMPButtonAboutFrm in 'BMPButtonAboutFrm.pas' {AboutBox},
+  BMPButtonBMPCategory in 'BMPButtonBMPCategory.pas';
+
+end.
