@@ -1,0 +1,270 @@
+{**********************}
+{                      }
+{   OIV Company Unit   }
+{                      }
+{**********************}
+unit OIVCom;
+Interface
+procedure OIVCompanyLtd(X,Y:Integer);
+Implementation
+uses CGADrv, TSCRChr, Graph, Crt;
+
+const
+     OIVDelay = 4000;
+
+var
+    Gd       :Integer;
+    Gm       :Integer;
+    OIVColor :Byte;
+
+procedure OIVCompanyLtd(X,Y:Integer);
+var f:integer;
+begin
+SetColor(0);
+LineRel(x+65,y+79);
+PutPixel(x+65,y+79,OIVColor);
+SetColor(OIVColor);
+LineRel(-6,6);
+LineRel(-1,0);
+LineRel(-1,1);
+LineRel(-1,0);
+LineRel(-1,1);
+LineRel(-1,0);
+LineRel(-1,1);
+LineRel(-3,0);
+LineRel(-9,0);
+LineRel(-1,-1);
+LineRel(-3,0);
+LineRel(-1,-1);
+LineRel(-1,0);
+LineRel(-1,-1);
+LineRel(-1,0);
+LineRel(-1,-1);
+LineRel(-1,0);
+LineRel(-6,-6);
+LineRel(0,-1);
+LineRel(-1,-1);
+LineRel(0,-1);
+LineRel(-1,-1);
+LineRel(0,-1);
+LineRel(-1,-1);
+LineRel(0,-3);
+LineRel(-1,-1);
+LineRel(0,-9);
+LineRel(1,-1);
+LineRel(0,-3);
+LineRel(1,-1);
+LineRel(0,-1);
+LineRel(1,-1);
+LineRel(0,-1);
+LineRel(1,-1);
+LineRel(0,-1);
+LineRel(6,-6);
+LineRel(1,0);
+LineRel(1,-1);
+LineRel(1,0);
+LineRel(1,-1);
+LineRel(1,0);
+LineRel(1,-1);
+LineRel(3,0);
+LineRel(1,-1);
+LineRel(9,0);
+LineRel(1,1);
+LineRel(3,0);
+LineRel(1,1);
+LineRel(1,0);
+LineRel(1,1);
+LineRel(1,0);
+LineRel(1,1);
+LineRel(1,0);
+LineRel(6,6);
+for f:=1 to 22 do
+  begin
+    LineRel(0,1);
+    LineRel(1,1)
+  end;
+LineRel(1,1);
+LineRel(0,1);
+LineRel(1,1);
+LineRel(0,1);
+LineRel(7,7);
+LineRel(1,0);
+LineRel(1,1);
+LineRel(1,0);
+LineRel(1,1);
+LineRel(2,0);
+LineRel(1,1);
+LineRel(2,0);
+LineRel(1,1);
+LineRel(7,0);
+LineRel(1,-1);
+LineRel(2,0);
+LineRel(1,-1);
+LineRel(2,0);
+LineRel(1,-1);
+LineRel(1,0);
+LineRel(2,-2);
+LineRel(1,0);
+LineRel(7,-7);
+LineRel(0,-1);
+LineRel(2,-2);
+for f:=1 to 37 do
+  begin
+    LineRel(0,-1);
+    LineRel(1,-1)
+  end;
+LineRel(-21,0);
+for f:=1 to 32 do
+  begin
+    LineRel(0,1);
+    LineRel(-1,1);
+  end;
+LineRel(-4,4);
+LineRel(-1,0);
+LineRel(-1,1);
+LineRel(-3,0);
+LineRel(-1,-1);
+LineRel(-1,0);
+LineRel(-3,-3);
+for f:=1 to 5 do
+  begin
+    LineRel(0,-1);
+    LineRel(-1,-1)
+  end;
+LineRel(0,-2);
+for f:=1 to 17 do
+  begin
+    LineRel(-1,-1);
+    LineRel(0,-1);
+  end;
+LineRel(-2,-2);
+LineRel(0,-1);
+LineRel(-6,-6);
+LineRel(-1,0);
+LineRel(-2,-2);
+LineRel(-1,0);
+LineRel(-2,-2);
+LineRel(-1,0);
+LineRel(-1,-1);
+LineRel(-1,0);
+LineRel(-1,-1);
+LineRel(-1,0);
+LineRel(-1,-1);
+LineRel(-2,0);
+LineRel(-1,-1);
+LineRel(-2,0);
+LineRel(-1,-1);
+LineRel(-3,0);
+LineRel(-1,-1);
+LineRel(-13,0);
+LineRel(-1,1);
+LineRel(-3,0);
+LineRel(-1,1);
+LineRel(-2,0);
+LineRel(-1,1);
+LineRel(-2,0);
+for f:=1 to 3 do
+  begin
+    LineRel(-1,1);
+    LineRel(-1,0)
+  end;
+LineRel(-2,2);
+LineRel(-1,0);
+LineRel(-2,2);
+LineRel(-1,0);
+LineRel(-6,6);
+LineRel(0,1);
+LineRel(-2,2);
+LineRel(0,1);
+LineRel(-2,2);
+LineRel(0,1);
+LineRel(-1,1);
+LineRel(0,1);
+LineRel(-1,1);
+LineRel(0,1);
+LineRel(-1,1);
+LineRel(0,2);
+LineRel(-1,1);
+LineRel(0,2);
+LineRel(-1,1);
+LineRel(0,3);
+LineRel(-1,1);
+LineRel(0,13);
+LineRel(1,1);
+LineRel(0,3);
+LineRel(1,1);
+LineRel(0,2);
+LineRel(1,1);
+LineRel(0,2);
+LineRel(1,1);
+LineRel(0,1);
+LineRel(1,1);
+LineRel(0,1);
+LineRel(1,1);
+LineRel(0,1);
+LineRel(2,2);
+LineRel(0,1);
+LineRel(2,2);
+LineRel(0,1);
+LineRel(6,6);
+LineRel(1,0);
+LineRel(2,2);
+LineRel(1,0);
+LineRel(2,2);
+for f:=1 to 3 do
+  begin
+    LineRel(1,0);
+    LineRel(1,1)
+  end;
+LineRel(2,0);
+LineRel(1,1);
+LineRel(2,0);
+LineRel(1,1);
+LineRel(3,0);
+LineRel(1,1);
+LineRel(13,0);
+LineRel(1,-1);
+LineRel(3,0);
+LineRel(1,-1);
+LineRel(2,0);
+LineRel(1,-1);
+LineRel(2,0);
+for f:=1 to 3 do
+  begin
+    LineRel(1,-1);
+    LineRel(1,0)
+  end;
+LineRel(2,-2);
+LineRel(1,0);
+LineRel(2,-2);
+LineRel(1,0);
+LineRel(1,-1);
+LineRel(0,-1);
+for f:=1 to 9 do
+  begin
+    LineRel(-1,-1);
+    LineRel(0,-1);
+  end;
+Circle(x+87,y+10,10);
+SetFillStyle(6,1);
+FloodFill(x+87,y+10,1);
+FloodFill(x+65,y+85,1);
+SetTextStyle(7,0,1);
+SetColor(3);
+OutTextXY(x+10,y+117,'C o m p a n y');
+Delay(OIVDelay);
+ClearDevice;
+SetColor(2);
+OutTextXY(70,90,'p r e s e n t . . .');
+Delay(OIVDelay);
+ClearDevice
+end;
+begin
+Gd:=Detect;
+OIVColor:=1;
+InitGraph(Gd,Gm,'');
+SetGraphMode(0);
+SetAspectRatio(320,350);
+OIVCompanyLtd(60,30);
+CloseGraph
+end.
