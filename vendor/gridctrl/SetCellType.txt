@@ -1,0 +1,14 @@
+This is really just a tip, to ward you away from a little gotcha that stumped me for a while.
+
+When you call the function SetCellType so your own specific class is used to edit a cell. e.g. a drop down combobox or check box in a cell; you still must set your grid to be editable! Otherwise the cell remains just as it is.
+
+So:-
+// Call this first:-
+pYourGrid.SetEditable(TRUE);
+// then call this:-
+pYourGrid.SetCellType(nRow, nCol, RUNTIME_CLASS(CGridCellCombo));
+
+May be cool to have a little note in these docs somewhere to mention this.
+
+- Arthur.
+ 

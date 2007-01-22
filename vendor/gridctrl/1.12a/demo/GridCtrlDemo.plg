@@ -1,0 +1,50 @@
+--------------------Configuration: GridCtrlDemo - Win32 Release--------------------
+Begining build with project "C:\Program Files\DevStudio\MyProjects\My Programs\Grid Control\GridCtrlDemo\GridCtrlDemo.dsp", at root.
+Active configuration is Win32 (x86) Application (based on Win32 (x86) Application)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fp"Release/GridCtrlDemo.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c "
+			"OLE Type Library Maker" with flags "/nologo /D "NDEBUG" /mktyplib203 /o NUL /win32 "
+			"Win32 Resource Compiler" with flags "/l 0xc09 /fo"Release/GridCtrlDemo.res" /d "NDEBUG" /d "_AFXDLL" "
+			"Browser Database Maker" with flags "/nologo /o"Release/GridCtrlDemo.bsc" "
+			"COFF Linker for 80x86" with flags "/nologo /subsystem:windows /incremental:no /pdb:"Release/GridCtrlDemo.pdb" /machine:I386 /out:"Release/GridCtrlDemo.exe" "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating command line "rc.exe /l 0xc09 /fo"Release/GridCtrlDemo.res" /d "NDEBUG" /d "_AFXDLL" "C:\Program Files\DevStudio\MyProjects\My Programs\Grid Control\GridCtrlDemo\GridCtrlDemo.rc"" 
+Creating temp file "C:\TEMP\RSPA1.tmp" with contents </nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fp"Release/GridCtrlDemo.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Program Files\DevStudio\MyProjects\My Programs\Grid Control\GridCtrlDemo\GridCtrl.cpp"
+"C:\Program Files\DevStudio\MyProjects\My Programs\Grid Control\GridCtrlDemo\GridCtrlDemo.cpp"
+"C:\Program Files\DevStudio\MyProjects\My Programs\Grid Control\GridCtrlDemo\GridCtrlDemoDlg.cpp"
+"C:\Program Files\DevStudio\MyProjects\My Programs\Grid Control\GridCtrlDemo\GridDropTarget.cpp"
+"C:\Program Files\DevStudio\MyProjects\My Programs\Grid Control\GridCtrlDemo\InPlaceEdit.cpp"
+>
+Creating command line "cl.exe @C:\TEMP\RSPA1.tmp" 
+Creating temp file "C:\TEMP\RSPA2.tmp" with contents </nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fp"Release/GridCtrlDemo.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Program Files\DevStudio\MyProjects\My Programs\Grid Control\GridCtrlDemo\StdAfx.cpp"
+>
+Creating command line "cl.exe @C:\TEMP\RSPA2.tmp" 
+Creating temp file "C:\TEMP\RSPA3.tmp" with contents </nologo /subsystem:windows /incremental:no /pdb:"Release/GridCtrlDemo.pdb" /machine:I386 /out:"Release/GridCtrlDemo.exe" 
+".\Release\GridCtrl.obj"
+".\Release\GridCtrlDemo.obj"
+".\Release\GridCtrlDemoDlg.obj"
+".\Release\GridDropTarget.obj"
+".\Release\InPlaceEdit.obj"
+".\Release\StdAfx.obj"
+".\Release\GridCtrlDemo.res">
+Creating command line "link.exe @C:\TEMP\RSPA3.tmp" 
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+GridCtrl.cpp
+GridCtrlDemo.cpp
+GridCtrlDemoDlg.cpp
+GridDropTarget.cpp
+InPlaceEdit.cpp
+Generating Code...
+Linking...
+
+
+
+GridCtrlDemo.exe - 0 error(s), 0 warning(s)
