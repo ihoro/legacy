@@ -1,0 +1,4 @@
+LIBRARY		kli
+EXPORTS
+			sethook
+			unhook
