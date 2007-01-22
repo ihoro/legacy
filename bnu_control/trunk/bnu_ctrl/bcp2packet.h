@@ -1,3 +1,5 @@
+// $Id$
+
 // definition of response _only_ (but you can add something else) packet's data for direct access to values (for working with FP80 you must use BCP2Engine::to64() function)
 // firstly, you must have a variable 'INT8U *data_ptr', that points to begin of packet's data; and 'data_size' value (usual situation for BCP2Engine::Handler[]())
 // also you need to define 'BCP_PACKET 0x??' and then include this file

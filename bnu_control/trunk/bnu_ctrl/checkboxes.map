@@ -1,3 +1,5 @@
+// $Id$
+
 // state of each checkbox in different modes (devices)
 // bit #0 describes state for device #0 and so on...
 // 1 - enabled, 0 - disabled

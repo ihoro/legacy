@@ -1,6 +1,7 @@
+// $Id$
+
 #include "stdafx.h"
 #include "bnu_ctrl.h"
-#include ".\windowb8.h"
 
 
 // CWindowB8 dialog
