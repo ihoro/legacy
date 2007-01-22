@@ -1,0 +1,3 @@
+#include "Res/ffcDlg.rc"
+#include "Res/ffcRes.rc"
+#include "Res/ffc_helpDlg.rc"
