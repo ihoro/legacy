@@ -1,0 +1,115 @@
+[Project]
+Assembler=masm
+Type=Win32 App
+Description=df
+Backup=$P\Bak\
+Group=1
+GroupExpand=1
+Res.rc=1
+[Files]
+1=df.Asm
+2=df.Inc
+3=df.Rc
+4=df.dlg
+[MakeFiles]
+0=df.rap
+1=df.rc
+2=df.asm
+3=df.obj
+4=df.res
+5=df.exe
+6=df.def
+7=df.dll
+8=df.txt
+9=df.lib
+10=df.mak
+11=df.hla
+12=df.com
+[MakeDef]
+Menu=1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0
+1=4,O,$B\RC.EXE /v,1
+2=3,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",2
+3=5,O,$B\LINK.EXE /nologo /SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0 /LIBPATH:"$L" /OUT:"$5",3,4
+4=0,0,,5
+5=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+7=0,0,"$E\OllyDbg",5
+6=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+11=4,O,$B\RC.EXE /v,1
+12=3,O,$B\ML.EXE /c /coff /Cp /Zi /nologo /I"$I",2
+13=5,O,$B\LINK.EXE /SUBSYSTEM:WINDOWS /DEBUG /VERSION:4.0 /LIBPATH:"$L" /OUT:"$5",3,4
+14=0,0,,5
+15=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+16=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+17=0,0,"$E\OllyDbg",5
+[Resource]
+1=,2001,2,df.ico
+[StringTable]
+[VerInf]
+[Group]
+Group=Added files,Assembly,Resources,Misc,Modules
+1=2
+2=2
+3=3
+4=3
+[Size]
+4=0,0,0,0
+1=0,0,0,0,6616
+2=0,0,0,0,4402
+[Colref]
+0=00FFFFFF
+1=00FFFFFF
+2=00FFFFFF
+3=00FFFFFF
+4=00FFFFFF
+5=00FFFFFF
+6=00FFFFFF
+7=00FFFFFF
+[VersionControl]
+Settings=1246
+Milestones=129
+MilestoneEvery=10
+MilestoneEveryCurrent=0
+MilestoneOnBuild=0.0.0.0
+MilestoneOnTime=2
+MilestoneOnDate=0
+MilestoneOnDateWhen=1
+MilestoneOnDateStatus=0
+MilestoneOnDateDate=19
+MilestoneOnDateTimeYear=2005
+MilestoneOnDateTimeMonth=8
+MilestoneOnDateTimeDate=10
+MilestoneOnDateTimeHour=23
+MilestoneOnDateTimeMin=7
+MilestoneOnDateTimeSec=6
+MilestoneOnDateTimeStatus=0
+BackupLocation=C:\code\VCBackups\
+CompressionLevel=0
+DefaultComment=Project $N, $Z, Backup Created On $D At $T.
+ExcludeExt1=\
+ExcludeExt2=\
+ExcludeExt3=\
+ExcludeExt4=\
+FileVerLength=4
+FileVer2Range=0
+FileVer3Range=0
+FileVer4Range=0
+ProductVerLength=4
+ProductVer2Range=0
+ProductVer3Range=0
+ProductVer4Range=0
+[BookMark]
+0=
+1=
+2=
+3=
+4=
+5=
+6=
+7=
+8=
+9=
+[BreakPoint]
+0=
+[Find]
+1="hIcon"
+2="CreateFile"
