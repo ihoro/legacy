@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mkupd", "mkupd\mkupd.vcproj", "{DC50F3C5-CFA0-4ED0-AAD5-7EA4583BA10C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DC50F3C5-CFA0-4ED0-AAD5-7EA4583BA10C}.Debug.ActiveCfg = Debug|Win32
+		{DC50F3C5-CFA0-4ED0-AAD5-7EA4583BA10C}.Debug.Build.0 = Debug|Win32
+		{DC50F3C5-CFA0-4ED0-AAD5-7EA4583BA10C}.Release.ActiveCfg = Release|Win32
+		{DC50F3C5-CFA0-4ED0-AAD5-7EA4583BA10C}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		updater\updater.rap = updater\updater.rap
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

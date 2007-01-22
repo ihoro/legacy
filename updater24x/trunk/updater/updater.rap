@@ -1,0 +1,120 @@
+[Project]
+Assembler=masm
+Type=Win32 App
+Description=updater
+Backup=$P\Bak\
+Group=1
+GroupExpand=1
+Res.rc=1
+Debug=0
+[Files]
+1=updater.Asm
+2=updater.Inc
+3=updater.Rc
+4=rcdata.bin
+[MakeFiles]
+0=updater.rap
+1=updater.rc
+2=updater.asm
+3=updater.obj
+4=updater.res
+5=updater.exe
+6=updater.def
+7=updater.dll
+8=updater.txt
+9=updater.lib
+10=updater.mak
+11=updater.hla
+12=updater.com
+13=updater.ocx
+14=updater.idl
+15=updater.tlb
+[MakeDef]
+Menu=1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0
+1=4,O,$B\RC.EXE /v,1
+2=3,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",2
+3=5,O,$B\LINK.EXE /nologo /align:16 /SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0 /LIBPATH:"$L" /OUT:"$5",3,4
+4=0,0,,5
+5=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+6=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+7=0,0,"$E\OllyDbg",5
+11=4,O,$B\RC.EXE /v,1
+12=3,O,$B\ML.EXE /c /coff /Cp /Zi /nologo /I"$I",2
+13=5,O,$B\LINK.EXE /SUBSYSTEM:WINDOWS /DEBUG /VERSION:4.0 /LIBPATH:"$L" /OUT:"$5",3,4
+14=0,0,,5
+15=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+16=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+17=0,0,"$E\OllyDbg",5
+[Resource]
+1=,1,7,rcdata.bin
+[StringTable]
+[Accel]
+[VerInf]
+[Group]
+Group=Added files,Assembly,Resources,Misc,Modules
+1=2
+2=2
+3=3
+4=3
+[Size]
+3=0,0,0,0,0
+4=0,0,0,0,3
+1=0,0,0,0,3727
+2=0,0,0,0,1291
+[VersionControl]
+Settings=1246
+Milestones=129
+MilestoneEvery=10
+MilestoneEveryCurrent=0
+MilestoneOnBuild=0.0.0.0
+MilestoneOnTime=2
+MilestoneOnDate=0
+MilestoneOnDateWhen=1
+MilestoneOnDateStatus=0
+MilestoneOnDateDate=9
+MilestoneOnDateTimeYear=2006
+MilestoneOnDateTimeMonth=7
+MilestoneOnDateTimeDate=8
+MilestoneOnDateTimeHour=12
+MilestoneOnDateTimeMin=41
+MilestoneOnDateTimeSec=12
+MilestoneOnDateTimeStatus=0
+BackupLocation=d:\code\VCBackups\
+CompressionLevel=0
+DefaultComment=Project $N, $Z, Backup Created On $D At $T.
+ExcludeExt1=\
+ExcludeExt2=\
+ExcludeExt3=\
+ExcludeExt4=\
+FileVerLength=4
+FileVer2Range=0
+FileVer3Range=0
+FileVer4Range=0
+ProductVerLength=4
+ProductVer2Range=0
+ProductVer3Range=0
+ProductVer4Range=0
+[Colref]
+0=00FFFFFF
+1=00FFFFFF
+2=00FFFFFF
+3=00FFFFFF
+4=00FFFFFF
+5=00FFFFFF
+6=00FFFFFF
+7=00FFFFFF
+[BookMark]
+0=
+1=
+2=
+3=
+4=
+5=
+6=
+7=
+8=
+9=
+[BreakPoint]
+0=
+[Find]
+1="err_file"
