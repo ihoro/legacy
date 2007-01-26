@@ -622,21 +622,6 @@ BOOL Cbnu_ctrlDlg::OnInitDialog()
 	// init main dialog title
 	SetWindowText(titleVersion);
 
-	//CString sss;
-	//sss.Format("sizeof(BCP_TIME) = %d, sizeof(CHANNEL_INFO) = %d", sizeof(BCP_TIME), sizeof(CHANNEL_INFO));
-	//SetWindowText(sss);
-
-	// TODO: init mode-box
-	//CheckRadioButton(IDC_MODE1, IDC_MODE7, IDC_MODE1);
-/*#ifndef _DEBUG
-	HWND h;
-	for (int i=1; i<9; i++)
-	{
-		h = ::GetDlgItem(m_hWnd, IDC_START+i);
-		::ShowWindow(h, false);
-	}
-#endif*/
-
 	CString s;
 
 	// init common titles
