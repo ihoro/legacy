@@ -49,6 +49,8 @@ extern Cbnu_ctrlDlg *mdlg;
 #include "windowB5.h"
 #include "windowB6.h"
 #include "windowB8.h"
+#include "windowBA.h"
+#include "windowBC.h"
 #include "windowD4.h"
 #include "windowD6.h"
 #include "windowD7.h"
@@ -94,6 +96,8 @@ extern Cbnu_ctrlDlg *mdlg;
 #define WND_B5 '\x26'		// 38
 #define WND_B6 '\x0E'		// 14
 #define WND_B8 '\x27'		// 39
+#define WND_BA '\x28'		// 40
+#define WND_BC '\x29'		// 41
 #define WND_D4 '\x1F'		// 31
 #define WND_D6 '\x23'		// 35
 #define WND_D7 '\x24'		// 36

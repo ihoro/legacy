@@ -25,7 +25,8 @@ CString TITLE_OFF;
 
 // title / version / about
 char titleVersion[] = "BNU Control v0.1a";
-char aboutStuff[] = "12.11.2006 by fnt0m32 'at' gmail.com\nBCP2 Protocol of 17.08.2006";
+char titleDemo[] = " [Demo Mode]";
+char aboutStuff[] = "20.02.2007 by fnt0m32 'at' gmail.com\nBCP2 Protocol of 17.08.2006";
 
 // BCP
 HANDLE hOnline;
@@ -143,6 +144,8 @@ bool Cbnu_ctrlDlg::wndOpen(unsigned char id)
 	case WND_B5: wnd[id] = new CWindowB5(this, procClose, id); break;
 	case WND_B6: wnd[id] = new CWindowB6(this, procClose, id); break;
 	case WND_B8: wnd[id] = new CWindowB8(this, procClose, id); break;
+	case WND_BA: wnd[id] = new CWindowBA(this, procClose, id); break;
+	case WND_BC: wnd[id] = new CWindowBC(this, procClose, id); break;
 	case WND_D4: wnd[id] = new CWindowD4(this, procClose, id); break;
 	case WND_D6: wnd[id] = new CWindowD6(this, procClose, id); break;
 	case WND_D7: wnd[id] = new CWindowD7(this, procClose, id); break;
@@ -1086,6 +1089,12 @@ void Cbnu_ctrlDlg::OnMmiDemo()
 	// switch part of interface
 	ENABLE_ITEM(IDC_SETUP, !m_isDemo);
 	ENABLE_ITEM(IDC_START, !m_isDemo);
+
+	// change title of main window
+	CString s(titleVersion);
+	if (m_isDemo)
+		s += titleDemo;
+	SetWindowText(s);
 
 	// close all windows
 	if (!m_isDemo)

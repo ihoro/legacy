@@ -66,6 +66,8 @@ CBCP2Engine::CBCP2Engine(int pktBufSize)
 	Format[0xB5] = "C";
 	Format[0xB6] = "Cffffffffffffffffff";
 	Format[0xB8] = "SC";
+	Format[0xBA] = "C";
+	Format[0xBC] = "C";
 	Format[0xD4] = "CC";
 	Format[0xD6] = "C";
 	Format[0xD7] = "CC";				// for request only. packet has several different formats!
@@ -85,7 +87,7 @@ CBCP2Engine::CBCP2Engine(int pktBufSize)
 	// --
 
 
-	// response packets formats			// it used to be used some time ago :) uncomment if you need 
+	// response packets formats			// it was used some time ago :) uncomment if you need 
 	///////////////////////////
 	/*
 	Format[0x40] = "CC";				// only header
@@ -485,22 +487,26 @@ void CBCP2Engine::EncodeBCPTime(BCP_TIME t, INT16S &week, FP80 &time)
 		time = 0;
 		return;
 	}
-	week = (short)floor( (double)(days / 7) );
+	// week = (short)floor( (double)(days / 7) );
+	week = days / 7;
 
 	// get time
 	time = 0;
 
 	// move by days
+	/*
 	days = days % 7;
 	while (days-- > 0)
 		time += 24*60*60*1000;
+	*/
+	time += (days % 7) * 24*60*60*1000;
 
 	// move by hour
-	time += t.hour*60*60*1000
+	time += t.hour * 60*60*1000
 	// move by minute
-		+ t.minute*60*1000
+		+ t.minute * 60*1000
 	// move by second
-		+ t.second*1000
+		+ t.second * 1000
 	// move by millisecond
 		+ t.millisecond;
 }

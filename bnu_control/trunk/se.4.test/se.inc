@@ -1144,6 +1144,119 @@ time_41				db 0FFh, 0FFh, 0FFh, 0FFh
 					db 10h,03h
 					
 					
+					; CA - 1
+					db 10h,0CAh
+					db 01h
+					dq 0.334
+					dq 1.01
+					dq 2.02
+					dq 3.03
+					dq 10.001
+					dq 20.002
+					dq 30.003
+					db 1
+					db 201
+					dq 1000000.111
+					dq 1000999.999
+					db 10h,03h
+					
+					; CA - 2
+					db 10h,0CAh
+					db 02h
+					dq 0.334
+					dq 1.01
+					dq 2.02
+					dq 3.03
+					dq 10.001
+					dq 20.002
+					dq 30.003
+					db 2
+					db 202
+					dq 2000000.222
+					dq 2000999.999
+					db 10h,03h
+					
+					; CA - 3
+					db 10h,0CAh
+					db 04h
+					dq 0.334
+					dq 1.01
+					dq 2.02
+					dq 3.03
+					dq 10.001
+					dq 20.002
+					dq 30.003
+					db 3
+					db 203
+					dq 3000000.333
+					dq 3000999.999
+					db 10h,03h
+					
+					; CA - 4
+					db 10h,0CAh
+					db 08h
+					dq 0.334
+					dq 1.01
+					dq 2.02
+					dq 3.03
+					dq 10.001
+					dq 20.002
+					dq 30.003
+					db 4
+					db 204
+					dq 4000000.444
+					dq 4000999.999
+					db 10h,03h
+					
+					; BC - 1
+					db 10h,0BDh
+					db 01h
+					dq 1.001
+					dq 1.1
+					dq 2.2
+					dq 3.3
+					db 1
+					db 201
+					db 1
+					db 10h,03h
+					
+					; BC - 2
+					db 10h,0BDh
+					db 02h
+					dq 2.002
+					dq 1.1
+					dq 2.2
+					dq 3.3
+					db 2
+					db 202
+					db 2
+					db 10h,03h
+					
+					; BC - 3
+					db 10h,0BDh
+					db 04h
+					dq 3.003
+					dq 1.1
+					dq 2.2
+					dq 3.3
+					db 3
+					db 203
+					db 3
+					db 10h,03h
+					
+					; BC - 4
+					db 10h,0BDh
+					db 08h
+					dq 4.004
+					dq 1.1
+					dq 2.2
+					dq 3.3
+					db 4
+					db 204
+					db 4
+					db 10h,03h
+					
+					
 					include almanac.inc
 					   
 					; end ---

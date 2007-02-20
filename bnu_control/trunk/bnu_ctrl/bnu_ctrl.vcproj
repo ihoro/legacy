@@ -589,6 +589,22 @@
 				>
 			</File>
 			<File
+				RelativePath=".\WindowBA.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\WindowBA.h"
+				>
+			</File>
+			<File
+				RelativePath=".\WindowBC.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\WindowBC.h"
+				>
+			</File>
+			<File
 				RelativePath=".\WindowD4.cpp"
 				>
 			</File>
@@ -685,7 +701,8 @@
 				>
 			</File>
 			<File
-				RelativePath=".\gridctrl\GridCtrl Manual.html"
+				RelativePath=".\gridctrl\GridCtrl Manual.htm"
+				DeploymentContent="true"
 				>
 			</File>
 			<File

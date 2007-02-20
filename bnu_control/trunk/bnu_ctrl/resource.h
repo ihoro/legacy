@@ -49,6 +49,8 @@
 #define IDD_WINDOW_B8_DIALOG            192
 #define IDR_MENU_MAIN                   193
 #define IDR_ACCELERATOR1                196
+#define IDD_WINDOW_BA_DIALOG            198
+#define IDD_WINDOW_BC_DIALOG            200
 #define IDC_RNPI_DATE                   1001
 #define IDC_RNPI_TIME                   1002
 #define IDC_RNPI_RMS                    1003
@@ -226,6 +228,7 @@
 #define IDC_21_ONCE                     1127
 #define IDC_B5_RESET                    1127
 #define IDC_B8_RESET                    1127
+#define IDC_BA_ON                       1127
 #define IDC_BUTTON2                     1128
 #define IDC_B2_SET                      1128
 #define IDC_22_SET                      1128
@@ -235,6 +238,7 @@
 #define IDC_12_CLEAR_GPS                1128
 #define IDC_25_OFF                      1128
 #define IDC_19_20_SET                   1128
+#define IDC_BA_OFF                      1128
 #define IDC_A2_SET                      1129
 #define IDC_B2_FKI                      1130
 #define IDC_B2_HEIGHT                   1131
@@ -362,11 +366,17 @@
 #define IDC_B8_BYTES                    1230
 #define IDC_B8_BYTES_COUNT              1230
 #define IDC_D7_LBL4                     1231
+#define IDC_BA_BASE_LINE                1231
 #define IDC_D7_COUNT1                   1232
+#define IDC_BA_GRID                     1232
 #define IDC_D7_LBL5                     1233
+#define IDC_BC_BASE_LINE                1233
 #define IDC_D7_COUNT2                   1234
+#define IDC_BC_ON                       1234
 #define IDC_D7_LBL6                     1235
+#define IDC_BC_OFF                      1235
 #define IDC_D7_COUNT3                   1236
+#define IDC_BC_GRID                     1236
 #define IDC_A0_TASK                     1237
 #define IDC_A0_DO                       1238
 #define IDC_A0_LBL_TIME                 1239
@@ -503,9 +513,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        198
+#define _APS_NEXT_RESOURCE_VALUE        202
 #define _APS_NEXT_COMMAND_VALUE         32790
-#define _APS_NEXT_CONTROL_VALUE         1231
+#define _APS_NEXT_CONTROL_VALUE         1237
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

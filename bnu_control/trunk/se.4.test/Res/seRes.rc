@@ -1,5 +1,5 @@
 #define MANIFEST 						24
-24					MANIFEST  DISCARDABLE "Res/se.manifest.xml"
+;24					MANIFEST  DISCARDABLE "Res/se.manifest.xml"
 
 // 4 using icon uncomment next line
 2000					ICON      DISCARDABLE "ico\se.2.ico"

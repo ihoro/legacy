@@ -3,6 +3,8 @@
 #include "stdafx.h"
 #include "bnu_ctrl.h"
 
+// i'm fucking dummy as far as i use this stuff instead of ... ;)
+
 
 char hexsym[] = "0123456789ABCDEF";
 char floatsym[] = "+-.0123456789";

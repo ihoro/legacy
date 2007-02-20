@@ -745,6 +745,52 @@
 
 
 ////////////////////////////////////////////////////////////////
+#elif BCP_PACKET == 0xBD
+
+	#ifdef BCP_PACKET_DEFINE
+
+		#define	_base_line			AS(0, INT8U)
+		#define	_base_num			(											\
+										(_base_line <= 2)						\
+										?										\
+											_base_line							\
+										:										\
+											(_base_line == 0x04)				\
+											?									\
+												(INT8U)3						\
+											:									\
+												(_base_line == 0x08)			\
+												?								\
+													(INT8U)4					\
+												:								\
+													0							\
+									)
+		#define _v					PTR(1, FP64)
+		#define _gps_time			AS(1, FP64)
+		#define _projection_x		AS(9, FP64)
+		#define _projection_y		AS(17, FP64)
+		#define _projection_z		AS(25, FP64)
+		#define _gps_num			AS(33, INT8U)
+		#define _gln_num			AS(34, INT8U)
+		#define _flag				AS(35, INT8U)
+
+	#else
+
+		#undef _base_line
+		#undef _base_num
+		#undef _v
+		#undef _gps_time
+		#undef _projection_x
+		#undef _projection_y
+		#undef _projection_z
+		#undef _gps_num
+		#undef _gln_num
+		#undef _flag
+
+	#endif
+
+
+////////////////////////////////////////////////////////////////
 #elif BCP_PACKET == 0xC1
 
 	#ifdef BCP_PACKET_DEFINE
@@ -780,6 +826,60 @@
 		#undef _fki
 		#undef _height
 		#undef _coords
+
+	#endif
+
+
+////////////////////////////////////////////////////////////////
+#elif BCP_PACKET == 0xCA
+
+	#ifdef BCP_PACKET_DEFINE
+
+		#define	_base_line			AS(0, INT8U)
+		#define	_base_num			(											\
+										(_base_line <= 2)						\
+										?										\
+											_base_line							\
+										:										\
+											(_base_line == 0x04)				\
+											?									\
+												(INT8U)3						\
+											:									\
+												(_base_line == 0x08)			\
+												?								\
+													(INT8U)4					\
+												:								\
+													0							\
+									)
+		#define _v					PTR(1, FP64)
+		#define _gps_time			AS(1, FP64)
+		#define _projection_x		AS(9, FP64)
+		#define _projection_y		AS(17, FP64)
+		#define _projection_z		AS(25, FP64)
+		#define _speed_x			AS(33, FP64)
+		#define _speed_y			AS(41, FP64)
+		#define _speed_z			AS(49, FP64)
+		#define _gps_num			AS(57, INT8U)
+		#define _gln_num			AS(58, INT8U)
+		#define _fisher_stat		AS(59, FP64)
+		#define _fisher_threshold	AS(67, FP64)
+
+	#else
+
+		#undef _base_line
+		#undef _base_num
+		#undef _v
+		#undef _gps_time
+		#undef _projection_x
+		#undef _projection_y
+		#undef _projection_z
+		#undef _speed_x
+		#undef _speed_y
+		#undef _speed_z
+		#undef _gps_num
+		#undef _gln_num
+		#undef _fisher_stat
+		#undef _fisher_threshold
 
 	#endif
 
