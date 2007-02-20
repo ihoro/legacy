@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bnu_ctrl", "bnu_ctrl\bnu_ctrl.vcproj", "{E4A37A73-35C7-4BCC-9213-A864563B9ED0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC50104A-827B-45E8-8306-B00087F88851}"
+	ProjectSection(SolutionItems) = preProject
+		BCP2 Protocol\BCP2 Protocol.doc = BCP2 Protocol\BCP2 Protocol.doc
+		format.txt = format.txt
+		help.txt = help.txt
+		info.txt = info.txt
+		questions.txt = questions.txt
+		se.4.test\se.rap = se.4.test\se.rap
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4A37A73-35C7-4BCC-9213-A864563B9ED0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E4A37A73-35C7-4BCC-9213-A864563B9ED0}.Debug|Win32.Build.0 = Debug|Win32
+		{E4A37A73-35C7-4BCC-9213-A864563B9ED0}.Release|Win32.ActiveCfg = Release|Win32
+		{E4A37A73-35C7-4BCC-9213-A864563B9ED0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
