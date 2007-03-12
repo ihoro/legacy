@@ -1,0 +1,58 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(8290EF07-5F64-4366-B76C-666B33AEFE6C),
+	version(1.0),
+	helpstring("Average Object 1.0 Type Library")
+]
+library AverageLib
+{
+
+
+///////////////////////////////////////////////////////////
+// IAverage
+///////////////////////////////////////////////////////////
+
+[
+	uuid(7DCD78B0-4B19-4FA1-8953-EEA55D8844C6),
+	dual,
+	oleautomation,
+	helpstring("IAverage interface"),
+	pointer_default(unique)
+]
+interface IAverage : IDispatch
+{
+	[helpstring("Calculate average sum by given array of integers.")]
+	HRESULT CalcAverage
+	(
+		[in] int *array,
+		[in] int array_len,
+		[out] int *avg
+	);
+
+	[helpstring("Calculate average sum by given string of integers separated by <sep>.")]
+	HRESULT CalcAverageFromString
+	(
+		[in, string] char *str,
+		[in] char sep,
+		[out] int *avg
+	);
+}
+
+
+///////////////////////////////////////////////////////////
+// Average
+///////////////////////////////////////////////////////////
+
+[
+	uuid(51D86720-C3D4-4F5B-AB3A-EA14C9BCA7A3),
+	helpstring("Average Object 1.0")
+]
+coclass Average
+{
+	dispinterface IAverage;
+}
+
+
+} // AverageLib

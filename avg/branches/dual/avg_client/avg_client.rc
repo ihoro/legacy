@@ -1,0 +1,165 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\avg_client.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\avg_client.ico"
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_AVG_CLIENT_DIALOG DIALOGEX 0, 0, 264, 101
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | 
+    DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Average Object Client"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_RESULT,208,16,48,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_SEQ,8,17,172,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "G",IDC_GET_CLASS_OBJECT,96,48,12,12,BS_FLAT
+    PUSHBUTTON      "R",IDC_CO_RELEASE,96,61,12,12,BS_CENTER | BS_FLAT | 
+                    WS_DISABLED
+    PUSHBUTTON      "C",IDC_CREATE_OBJECT,184,48,12,12,BS_FLAT | WS_DISABLED
+    PUSHBUTTON      "F",IDC_FREE_OBJECT,184,61,12,12,BS_FLAT | WS_DISABLED
+    PUSHBUTTON      "C",IDC_CALC,184,74,12,12,BS_FLAT | WS_DISABLED
+    PUSHBUTTON      "Enough !",IDC_BUTTON2,8,80,72,12,BS_FLAT
+    CONTROL         "inproc",IDC_INPROC,"Button",BS_AUTORADIOBUTTON,16,48,35,
+                    12
+    CONTROL         "local",IDC_LOCAL,"Button",BS_AUTORADIOBUTTON,16,60,28,
+                    12
+    LTEXT           "Input integers separated by commas:",IDC_STATIC,8,4,120,
+                    12,SS_CENTERIMAGE
+    GROUPBOX        "Select server type",IDC_STATIC,8,36,72,40,BS_CENTER
+    LTEXT           "Result:",IDC_STATIC,184,16,24,12,SS_CENTERIMAGE
+    LTEXT           " reate Object",IDC_STATIC,196,48,52,12,SS_CENTERIMAGE
+    LTEXT           " ree Object",IDC_STATIC,196,61,52,12,SS_CENTERIMAGE
+    LTEXT           " alculate",IDC_STATIC,196,74,52,12,SS_CENTERIMAGE
+    LTEXT           " et Class Object",IDC_STATIC,108,48,60,12,
+                    SS_CENTERIMAGE
+    LTEXT           " elease Class Object",IDC_STATIC,108,61,64,12,
+                    SS_CENTERIMAGE
+    GROUPBOX        "Take an action",IDC_STATIC,88,36,168,56
+    LTEXT           " Objects count: 0",IDC_OBJECTS,96,75,76,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_AVG_CLIENT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 257
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 94
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\avg_client.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
