@@ -63,7 +63,7 @@
 				AdditionalDependencies="psapi.lib"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
-				SubSystem="2"
+				SubSystem="1"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -137,7 +137,7 @@
 				AdditionalDependencies="psapi.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
-				SubSystem="2"
+				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="1"
@@ -215,7 +215,7 @@
 				OutputFile="$(OutDir)\winmgt.exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="false"
-				SubSystem="2"
+				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="1"
@@ -254,7 +254,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\default.conf"
+				RelativePath=".\main.cpp"
 				>
 			</File>
 			<File
@@ -287,14 +287,6 @@
 			</File>
 			<File
 				RelativePath=".\stdafx.h"
-				>
-			</File>
-			<File
-				RelativePath=".\wget_sv.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\wget_sv.h"
 				>
 			</File>
 		</Filter>
@@ -331,6 +323,22 @@
 			</File>
 			<File
 				RelativePath=".\wget.conf"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="supervisor"
+			>
+			<File
+				RelativePath=".\default.conf"
+				>
+			</File>
+			<File
+				RelativePath=".\wget_sv.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\wget_sv.h"
 				>
 			</File>
 		</Filter>

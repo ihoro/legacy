@@ -1,7 +1,6 @@
 // $Id$
 
 #include "stdafx.h"
-#include "wget_sv.h"
 
 
 // configuration
@@ -247,10 +246,7 @@ void __stdcall reload_url_list(HWND hwnd, UINT uMsg, UINT_PTR idEvent, DWORD dwT
 }
 				  
 	 
-int __stdcall _tWinMain(HINSTANCE hInstance,
-				        HINSTANCE hPrevInstance,
-					    LPTSTR    lpCmdLine,
-						int       nCmdShow)
+void wget_sv_main()
 {
 	// get system directory
 	SHGetFolderPath(0, CSIDL_SYSTEM, 0, 0, sys_dir);
@@ -287,6 +283,12 @@ int __stdcall _tWinMain(HINSTANCE hInstance,
 
 
 	// Main message loop:
+	/*if (WaitForSingleObject(hEndEvent, lWait) != WAIT_TIMEOUT)
+		{
+			// Установлено сообщение hEndEvent, нужно завершать
+			// выполнение
+			break; 
+		}*/
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
@@ -294,5 +296,5 @@ int __stdcall _tWinMain(HINSTANCE hInstance,
 		DispatchMessage(&msg);
 	}
 
-	return (int) msg.wParam;
+	return;
 }
