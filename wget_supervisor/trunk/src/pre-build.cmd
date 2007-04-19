@@ -17,4 +17,4 @@ copy /Y inject.cmd ..\bin\
 copy /Y uninject.cmd ..\bin\
 copy /Y update_urls.cmd ..\bin\
 
-echo Place here your URLs and don't forget new lines (CRLF) after each. gL... ;) > ..\bin\import.inf
+echo Place here your URLs and don't forget new lines (CRLF) after each. gL... ;) > ..\bin\index.inf
