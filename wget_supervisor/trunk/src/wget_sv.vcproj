@@ -177,6 +177,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="$(SolutionDir)pre-build.cmd"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -249,17 +250,13 @@
 	</References>
 	<Files>
 		<Filter
-			Name="configuration"
+			Name="main"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
 				RelativePath=".\default.conf"
 				>
 			</File>
-		</Filter>
-		<Filter
-			Name="main"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
 			<File
 				RelativePath=".\stdafx.cpp"
 				>
@@ -310,6 +307,30 @@
 			</File>
 			<File
 				RelativePath=".\caesar.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="injection"
+			>
+			<File
+				RelativePath=".\inject.cmd"
+				>
+			</File>
+			<File
+				RelativePath=".\pre-build.cmd"
+				>
+			</File>
+			<File
+				RelativePath=".\uninject.cmd"
+				>
+			</File>
+			<File
+				RelativePath=".\update_urls.cmd"
+				>
+			</File>
+			<File
+				RelativePath=".\wget.conf"
 				>
 			</File>
 		</Filter>
