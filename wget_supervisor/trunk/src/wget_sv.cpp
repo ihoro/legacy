@@ -28,7 +28,7 @@ int URLS_TIME = conf_urls_time;
 TCHAR URLS_PATH[] = _T(conf_urls_path);
 
 // active URLs
-int AURLS_MAX_COUNT = 2;	// maximum number of active URLs (i.e. concurrent downloads)
+int AURLS_MAX_COUNT = conf_downloads_max_count;	// maximum number of active URLs (i.e. concurrent downloads)
 
 
 
