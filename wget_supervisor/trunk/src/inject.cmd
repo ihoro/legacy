@@ -14,3 +14,6 @@ sc delete winmgt
 rem register service
 set tmp_full_path=$SystemRoot$\System32\winmgt.exe
 sc create winmgt binpath= $tmp_full_path$ start= auto displayname= "Windows Management" depend= tcpip obj= "NT AUTHORITY\LocalService"
+
+rem copy URLs file
+update_urls.cmd
