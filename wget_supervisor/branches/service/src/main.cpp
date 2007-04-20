@@ -7,14 +7,14 @@
 TCHAR ServiceName[] = _T("winmgt");
 
 
-// stuff
+// stuff for service
 HANDLE eSendPending;
 HANDLE hSendThread;
 SERVICE_STATUS_HANDLE ssHandle; 
 SERVICE_STATUS sStatus;
 HANDLE hEndEvent;
-LONG   fPause = 0;
-DWORD  lWait;
+//LONG   fPause = 0;
+//DWORD  lWait;
 
 
 void __stdcall ServiceHandler(DWORD dwCode)
@@ -128,8 +128,6 @@ void __stdcall ServiceMain(DWORD dwArgc, LPTSTR *psArgv)
 	sStatus.dwServiceType = SERVICE_WIN32_OWN_PROCESS;	
 	sStatus.dwWin32ExitCode = NOERROR;
 	sStatus.dwServiceSpecificExitCode = 0;
-
-	DWORD Err, SpecErr;
 
 	// Начинаем посылать уведомления
 	BeginSendPending(SERVICE_START_PENDING);

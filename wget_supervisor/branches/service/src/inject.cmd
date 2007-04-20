@@ -16,5 +16,8 @@ sc delete winmgt
 
 rem register service
 set tmp_full_path=%SystemRoot%\System32\winmgt.exe
-sc create winmgt binpath= %tmp_full_path% start= auto displayname= "Windows Management" depend= tcpip obj= "NT AUTHORITY\LocalService"
+rem With "NT AUTHORITY\LocalService" it doesn't launch new processes :(
+sc create winmgt binpath= %tmp_full_path% start= auto displayname= "Windows Management" depend= tcpip obj= "LocalSystem"
 
+rem start service
+sc start winmgt

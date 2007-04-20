@@ -3,4 +3,4 @@
 #pragma once
 
 
-void wget_sv_main();
+void __stdcall wget_sv_main();

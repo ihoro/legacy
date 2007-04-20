@@ -303,8 +303,12 @@
 			</File>
 		</Filter>
 		<Filter
-			Name="injection"
+			Name="tools"
 			>
+			<File
+				RelativePath=".\get_files.cmd"
+				>
+			</File>
 			<File
 				RelativePath=".\inject.cmd"
 				>
@@ -321,24 +325,28 @@
 				RelativePath=".\update_urls.cmd"
 				>
 			</File>
-			<File
-				RelativePath=".\wget.conf"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="supervisor"
 			>
-			<File
-				RelativePath=".\default.conf"
-				>
-			</File>
 			<File
 				RelativePath=".\wget_sv.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\wget_sv.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="configuration"
+			>
+			<File
+				RelativePath=".\default.conf"
+				>
+			</File>
+			<File
+				RelativePath=".\wget.conf"
 				>
 			</File>
 		</Filter>
