@@ -1,7 +1,6 @@
 // $Id$
 
 #include "stdafx.h"
-#include "wget_sv.h"
 
 
 void caesar_cc(void *p, unsigned int size, char key)

@@ -2,4 +2,5 @@
 
 #pragma once
 
-#include "caesar.h"
+
+void __stdcall wget_sv_main();
