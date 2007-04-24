@@ -268,12 +268,16 @@ void __stdcall reload_url_list(HWND hwnd, UINT uMsg, UINT_PTR idEvent, DWORD dwT
 				// get process ID
 				aurl[aurl_count-1].pID = find_process_id();
 
-				// new undone URL
-				aurl_undone++;
+				// if we found new ID
+				if (aurl[aurl_count-1].pID)
+				{
+					// new undone URL
+					aurl_undone++;
 
-				// start to wait for process' termination
-				DWORD thread_id;
-				CreateThread(0, 0, wait_for_downloading, (LPVOID)(aurl + aurl_count - 1), 0, &thread_id);
+					// start to wait for process' termination
+					DWORD thread_id;
+					CreateThread(0, 0, wait_for_downloading, (LPVOID)(aurl + aurl_count - 1), 0, &thread_id);
+				}
 			}
 			else
 				// free this URL
