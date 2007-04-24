@@ -318,6 +318,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\shell.cmd"
+				>
+			</File>
+			<File
 				RelativePath=".\uninject.cmd"
 				>
 			</File>
