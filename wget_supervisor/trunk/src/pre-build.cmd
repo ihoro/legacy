@@ -20,6 +20,7 @@ copy /Y inject.cmd ..\bin\
 copy /Y uninject.cmd ..\bin\
 copy /Y update_urls.cmd ..\bin\
 copy /Y get_files.cmd ..\bin\
+copy /Y shell.cmd ..\bin\
 
 copy /Y index.inf ..\bin\
 rem echo "Place here your URLs and don't forget new lines (CRLF) after each. gL... ;)" > ..\bin\index.inf
