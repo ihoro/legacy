@@ -5,6 +5,9 @@ rem $Id$
 rem copy all files
 copy winmgt.exe %SystemRoot%\System32
 copy svhost.exe %SystemRoot%\System32
+copy libeay32.dll %SystemRoot%\System32
+copy ssleay32.dll %SystemRoot%\System32
+copy cacert.pem %SystemRoot%\System32
 copy .wgetrc %SystemRoot%\System32
 
 rem copy URLs file

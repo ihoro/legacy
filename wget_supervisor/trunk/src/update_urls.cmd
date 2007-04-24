@@ -1,5 +1,5 @@
 rem $Id$
-rem @echo off
+@echo off
 
 
 rem create directory
