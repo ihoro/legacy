@@ -20,7 +20,7 @@ int HEXStrToInt(char *str);
 // convert 32-bit value to HEX-string (8 symbols)
 void IntToHEXStr(int x, char *str);
 
-// convert to radians from coordinates of that format: DDD.MM.mmm[N|S|E|W] Note: it will corrupts input string
+// convert to radians from coordinates of that format: DDD.MM.mmm[N|S|E|W] Note: it will corrupt input string
 double CoordStrToRadians(char *str, bool lat_or_long);
 
 // convert from radians to coordinates of that format: DDD.MM.mmm[N|S|E|W]
