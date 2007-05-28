@@ -1,0 +1,83 @@
+[Project]
+Assembler=masm
+Type=Win32 App
+Description=Run programs with maximized window
+Backup=$P\Bak\
+Group=1
+GroupExpand=1
+Debug=0
+[Files]
+1=runmax.asm
+2=
+3=
+4=
+[MakeFiles]
+0=runmax.rap
+1=runmax.rc
+2=runmax.asm
+3=runmax.obj
+4=runmax.res
+5=runmax.exe
+6=runmax.def
+7=runmax.dll
+8=runmax.txt
+9=runmax.lib
+10=runmax.mak
+11=runmax.hla
+12=runmax.com
+13=runmax.ocx
+14=runmax.idl
+15=runmax.tlb
+[MakeDef]
+Menu=1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0
+1=4,O,$B\RC.EXE /v,1
+2=3,O,$B\ML.EXE /c /nologo /coff /Cp /nologo /I"$I",2
+3=5,O,$B\LINK.EXE /nologo /SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0 /LIBPATH:"$L" /OUT:"$5",3
+4=0,0,,5
+5=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+6=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+7=0,0,"$E\OllyDbg",5
+11=4,O,$B\RC.EXE /v,1
+12=3,O,$B\ML.EXE /c /coff /Cp /Zi /nologo /I"$I",2
+13=5,O,$B\LINK.EXE /SUBSYSTEM:WINDOWS /DEBUG /VERSION:4.0 /LIBPATH:"$L" /OUT:"$5",3,4
+14=0,0,,5
+15=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+16=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+17=0,0,"$E\OllyDbg",5
+[Resource]
+[StringTable]
+[Accel]
+[VerInf]
+[Group]
+Group=Added files,Assembly,Resources,Misc,Modules
+1=2
+2=
+3=
+4=
+[Size]
+1=0,0,0,0,583
+2=
+3=0,0,0,0,0
+4=
+[Colref]
+0=00FFFFFF
+1=00FFFFFF
+2=00FFFFFF
+3=00FFFFFF
+4=00FFFFFF
+5=00FFFFFF
+6=00FFFFFF
+7=00FFFFFF
+[BookMark]
+0=
+1=
+2=
+3=
+4=
+5=
+6=
+7=
+8=
+9=
+[BreakPoint]
+0=
