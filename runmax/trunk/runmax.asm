@@ -57,17 +57,25 @@ spi                 PROCESS_INFORMATION<>
 
 start:
     
-    invoke  RtlZeroMemory,offset ssi,sizeof ssi
-    invoke  RtlZeroMemory,offset spi,sizeof spi
+    ; null all structures
+    cld
+    xor     al,al
+    lea     edi,ssi
+    mov     ecx,sizeof ssi + sizeof spi
+    rep stosb
 
+    ; set startup params
     mov     ssi.dwFlags,STARTF_USESHOWWINDOW    
     mov     ssi.wShowWindow,SW_SHOWMAXIMIZED
 
+    ; get command line
     invoke  GetCommandLine
 
+    ; get length of command line
     push    eax
     invoke  StrLen,eax
 
+    ; find first space
     cld
     mov     ecx,eax
     pop     edi
@@ -75,10 +83,11 @@ start:
     repne scasb
     jnz     exit
 
+    ; find last space
     repe scasb
     dec     edi    
 
-
+    ; start it
     invoke  CreateProcess,
                 0,
                 edi,
