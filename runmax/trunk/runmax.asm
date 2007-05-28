@@ -4,6 +4,9 @@ comment `#####################################################
 #
 #  runmax v0.1 - Runs program with maximized window
 #
+#  2007 (c) fnt0m32 'at' gmail.com
+#
+#
 #  Usage:
 #    runmax [program with some params]
 #
