@@ -470,7 +470,7 @@
 	#ifdef BCP_PACKET_DEFINE
 
 		#define _rnpi			AS(0, INT8U)
-		#define _v				PTR(1, INT8U)
+		#define _v				PTR(1, FP80)
 		#define _flag			AS(51, INT8U)
 
 	#else
