@@ -299,7 +299,7 @@
 	#ifdef BCP_PACKET_DEFINE
 
 		#define _rnpi			AS(0, INT8U)
-		#define _time			PTR(1, FP80)
+		#define _time			PTR(1, INT8U)
 		#define _week			AS(11, INT16S)
 		#define _diff_OG		AS(13, FP32)
 		#define _status			AS(17, INT8U)
@@ -470,7 +470,7 @@
 	#ifdef BCP_PACKET_DEFINE
 
 		#define _rnpi			AS(0, INT8U)
-		#define _v				PTR(1, FP80)
+		#define _v				PTR(1, INT8U)
 		#define _flag			AS(51, INT8U)
 
 	#else
