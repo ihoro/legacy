@@ -1,0 +1,4 @@
+LIBRARY		mmh
+EXPORTS
+			sethook
+			unhook
