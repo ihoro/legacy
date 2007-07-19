@@ -1600,7 +1600,7 @@ LOCAL	cto:COMMTIMEOUTS
 		
 	.else
 	
-		invoke	MessageBox,hdlg,addr errOpenPort,errTitle,MB_OK
+		invoke	MessageBox,hdlg,addr errOpenPort,addr errTitle,MB_OK
 		xor		eax,eax
 	
 	.endif
