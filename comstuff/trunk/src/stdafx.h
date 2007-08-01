@@ -31,6 +31,7 @@
 // Windows Header Files:
 #include <windows.h>
 #include <shellapi.h>
+#include <commctrl.h>
 
 // C RunTime Header Files
 #include <stdlib.h>

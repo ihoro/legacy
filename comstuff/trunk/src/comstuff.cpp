@@ -38,6 +38,21 @@ Value<double> course(0, 359.9, 0.1);
 Value<double> depth(0, 100, 1.0);
 
 
+// window stuff
+HWND hwnd;	// main dialog window
+HWND hTT;	// tooltip window
+
+
+void switchInterface(bool enable)
+{
+	EnableWindow(GetDlgItem(hwnd, IDC_PORT), enable);
+	EnableWindow(GetDlgItem(hwnd, IDC_SPEED), enable);
+	EnableWindow(GetDlgItem(hwnd, IDC_PARITY), enable);
+	EnableWindow(GetDlgItem(hwnd, IDC_STOPBITS), enable);
+	EnableWindow(GetDlgItem(hwnd, IDC_TIME), enable);
+}
+
+
 // s must points to char after '$'
 void calc_crc(char *s)
 {
@@ -63,6 +78,23 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 	//------------------------------------------------
 	case WM_INITDIALOG:
+
+		// remember handle
+		::hwnd = hwnd;
+
+		// set tooltips
+		TOOLINFO ti;
+		ti.cbSize = sizeof(TOOLINFO);
+		ti.uFlags = TTF_IDISHWND | TTF_SUBCLASS;
+		// about button
+		ti.uId = (UINT_PTR)GetDlgItem(hwnd, IDC_ABOUT);
+		ti.lpszText = "О программе";
+		SendMessage(hTT, TTM_ADDTOOL, 0, (LPARAM)&ti);
+		// exit button
+		ti.uId = (UINT_PTR)GetDlgItem(hwnd, IDC_EXIT);
+		ti.lpszText = "Выход";
+		SendMessage(hTT, TTM_ADDTOOL, 0, (LPARAM)&ti);
+
 
 		// set title
 		SetWindowText(hwnd, app_title);
@@ -147,6 +179,8 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				// set new button caption
 				SetDlgItemText(hwnd, IDC_START, "Старт");
+
+				switchInterface(true);
 			}
 
 			// do start
@@ -198,6 +232,9 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				// set new button caption
 				SetDlgItemText(hwnd, IDC_START, "Стоп");
+
+				
+				switchInterface(false);
 			}
 
 			break;
@@ -207,6 +244,13 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			ShellAbout(hwnd, app_title, app_about, 0);
 
 			break;
+
+		case IDC_EXIT:
+
+			PostMessage(hwnd, WM_CLOSE, 0, 0);
+
+			break;
+
 		};
 
 		break;
@@ -270,6 +314,8 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	hTT = CreateWindowEx(0, "Tooltips_class32", 0, 0, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, hInstance, 0);
+
 	DialogBoxParam(hInstance, (LPCSTR)IDD_MAIN_DIALOG, 0, DlgProc, 0);
 
 	return 0;
