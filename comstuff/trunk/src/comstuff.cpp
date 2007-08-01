@@ -4,8 +4,8 @@
 #include "comstuff.h"
 
 
-char app_title[] = "COM Stuff v0.1";
-char app_about[] = "19.07.2007 by fnt0m32 'at' gmail.com\nHave fun!";
+char app_title[] = "COM Stuff v0.2";
+char app_about[] = "01.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
 
 
 bool idle = true;
@@ -23,7 +23,6 @@ int com_buffer_in =  1024 *4;
 int com_buffer_out = 1024 *4;
 
 HANDLE comH;
-OVERLAPPED ovr;
 
 // can fuck me later, but this studio has fucked me already! why in 2003 it ...?
 char *parity[] = {"No", "Even", "Mark", "Odd", "Space"};
@@ -34,12 +33,9 @@ char *stopbits[] = {"1", "1.5", "2"};
 int time_left;
 
 // packets data
-int zero_or_one;
-double course;
-const double course_offset = 0.1;
-double depth;
-const double depth_offset = -1.0;
-
+Value<int> zero_or_one(0, 1, 1);
+Value<double> course(0, 359.9, 0.1);
+Value<double> depth(0, 100, 1.0);
 
 
 // s must points to char after '$'
@@ -81,7 +77,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		for (int i=0; i<8; i++)
 		{
 			sprintf(s+7, "%d", i+1);
-			if ( (h = CreateFile(s, GENERIC_READ|GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_FLAG_OVERLAPPED, 0)) != INVALID_HANDLE_VALUE )
+			if ( (h = CreateFile(s, GENERIC_READ|GENERIC_WRITE, 0, 0, OPEN_EXISTING, 0/*FILE_FLAG_OVERLAPPED*/, 0)) != INVALID_HANDLE_VALUE )
 			{
 				// add to list
 				com_list[com_list_count] = i+1;
@@ -148,7 +144,6 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			{
 				KillTimer(hwnd, 1);
 				CloseHandle(comH);
-				CloseHandle(ovr.hEvent);
 
 				// set new button caption
 				SetDlgItemText(hwnd, IDC_START, "Старт");
@@ -166,16 +161,12 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				// try to open selected COM port
 				sprintf(s, "\\\\.\\COM%d", com_list[ SendDlgItemMessage(hwnd, IDC_PORT, CB_GETCURSEL, 0, 0) ]);
-				comH = CreateFile(s, GENERIC_READ|GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_FLAG_OVERLAPPED, 0);
+				comH = CreateFile(s, GENERIC_READ|GENERIC_WRITE, 0, 0, OPEN_EXISTING, 0/*FILE_FLAG_OVERLAPPED*/, 0);
 				if (comH == INVALID_HANDLE_VALUE)
 				{
 					MessageBox(hwnd, "Не могу открыть СОМ-порт.", "Ошибка", MB_OK|MB_ICONERROR);
 					break;
 				}
-
-				// reset
-				PurgeComm(comH, PURGE_TXABORT | PURGE_RXABORT | PURGE_TXCLEAR | PURGE_RXCLEAR);
-				ClearCommBreak(comH);
 
 				// set queue length
 				SetupComm(comH, com_buffer_in, com_buffer_out);
@@ -193,18 +184,14 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				// set timeouts
 				GetCommTimeouts(comH, &cto);
-				cto.ReadIntervalTimeout = 10;
 				cto.WriteTotalTimeoutMultiplier = 10;
 				cto.WriteTotalTimeoutConstant = 2000;
 				SetCommTimeouts(comH, &cto);
 
-				// init ovr
-				ovr.hEvent = CreateEvent(0, TRUE, FALSE, 0);
-
 				// reset all global params
-				zero_or_one = 0;
-				course = 0.0;
-				depth = 50.0;
+				zero_or_one.reset();
+				course.reset();
+				depth.reset();
 
 				// start timer
 				SetTimer(hwnd, 1, timer_elapse, 0);
@@ -229,34 +216,30 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 
 		char s[50];
-		int c;
+		DWORD c;
 
 		// $EPVHW
-		sprintf(s, "$EPVHW,,,,,14.%d,N,,,A*%d\r\n", zero_or_one, 64+zero_or_one);
-		WriteFile(comH, s, strlen(s), (LPDWORD)&c, &ovr);
+		sprintf(s, "$EPVHW,,,,,14.%d,N,,,A*%d\r\n", zero_or_one(), 64+zero_or_one());
+		WriteFile(comH, s, strlen(s), &c, 0);
 
 		// $EPVTG
-		sprintf(s, "$EPVTG,,,,,14.%d,N,,,A*%d\r\n", zero_or_one, 68+zero_or_one);
-		WriteFile(comH, s, strlen(s), (LPDWORD)&c, &ovr);
+		sprintf(s, "$EPVTG,,,,,14.%d,N,,,A*%d\r\n", zero_or_one(), 68+zero_or_one());
+		WriteFile(comH, s, strlen(s), &c, 0);
 
 		// $EPHDT
-		sprintf(s, "$EPHDT,%.1f,T*??\r\n", course);
+		sprintf(s, "$EPHDT,%.1f,T*", course());
 		calc_crc(s+1);
-		WriteFile(comH, s, strlen(s), (LPDWORD)&c, &ovr);
+		WriteFile(comH, s, strlen(s), &c, 0);
 
 		// $EPDBT
-		sprintf(s, "$EPDBT,%.1f,f,%.1f,M,%.1f,F*??\r\n", depth * 0.305, depth, depth * 1.83);
+		sprintf(s, "$EPDBT,,,%.1f,M,,*", depth());
 		calc_crc(s+1);
-		WriteFile(comH, s, strlen(s), (LPDWORD)&c, &ovr);
+		WriteFile(comH, s, strlen(s), &c, 0);
 
-		// switch params
-		zero_or_one ^= 1;
-		course += course_offset;
-		if (course > 359.9)
-			course = 0.0;
-		depth += depth_offset;
-		if (depth < 10.0)
-			depth = 50.0;
+		// shift params
+		zero_or_one++;
+		course++;
+		depth++;
 
 		// shift time
 		SetDlgItemInt(hwnd, IDC_TIME_LEFT, --time_left, FALSE);
