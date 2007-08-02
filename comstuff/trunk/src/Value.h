@@ -22,6 +22,32 @@ public:
 	// returns current value
 	T operator()() { return value; }
 
+	// returns current value with some offset (inc/dec)
+	T operator()(T offset)
+	{
+		T res = value + offset;
+		res =
+			offset > 0
+			?
+				( begin < end ? res > end : res < end )
+				?
+					res - end + begin - diff
+				:
+					res
+			:
+				( begin < end ? res < begin : res > begin )
+				?
+					res - begin + end + diff
+				:
+					res;
+		if (res < begin)
+			res = end;
+		if (res > end)
+			res = begin;
+
+		return res;
+	}
+
 	// incrementation
 	T operator++() { inc(); return value; }
 	T operator++(int) { T old = value; inc(); return old; }

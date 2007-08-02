@@ -4,8 +4,8 @@
 #include "comstuff.h"
 
 
-char app_title[] = "COM Stuff v0.2";
-char app_about[] = "01.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
+char app_title[] = "COM Stuff v0.3";
+char app_about[] = "02.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
 
 
 bool idle = true;
@@ -259,7 +259,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_TIMER:
 		{
 
-		char s[50];
+		char s[60];
 		DWORD c;
 
 		// $EPVHW
@@ -267,7 +267,8 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		WriteFile(comH, s, strlen(s), &c, 0);
 
 		// $EPVTG
-		sprintf(s, "$EPVTG,,,,,14.%d,N,,,A*%d\r\n", zero_or_one(), 68+zero_or_one());
+		sprintf(s, "$EPVTG,,,,,14.%d,N,15.%d,K,A*", zero_or_one(), zero_or_one());
+		calc_crc(s+1);
 		WriteFile(comH, s, strlen(s), &c, 0);
 
 		// $EPHDT
@@ -275,8 +276,13 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		calc_crc(s+1);
 		WriteFile(comH, s, strlen(s), &c, 0);
 
+		// $EPHDG
+		sprintf(s, "$EPHDG,%.1f,,,,*", course(-5.0));
+		calc_crc(s+1);
+		WriteFile(comH, s, strlen(s), &c, 0);
+
 		// $EPDBT
-		sprintf(s, "$EPDBT,,,%.1f,M,,*", depth());
+		sprintf(s, "$EPDBT,%.1f,f,%.1f,M,%.1f,F*", depth() * 0.305, depth(), depth() * 1.83);
 		calc_crc(s+1);
 		WriteFile(comH, s, strlen(s), &c, 0);
 
