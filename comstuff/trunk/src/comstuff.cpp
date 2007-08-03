@@ -4,8 +4,8 @@
 #include "comstuff.h"
 
 
-char app_title[] = "COM Stuff v0.3";
-char app_about[] = "02.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
+char app_title[] = "COM Stuff v0.4";
+char app_about[] = "03.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
 
 
 bool idle = true;
@@ -224,7 +224,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				// reset all global params
 				zero_or_one.reset();
-				course.reset();
+				course.set(355.0);
 				depth.reset();
 
 				// start timer
@@ -288,6 +288,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		// shift params
 		zero_or_one++;
+		double dd = course();
 		course++;
 		depth++;
 

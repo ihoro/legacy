@@ -17,6 +17,7 @@ public:
 		diff(diff)
 	{}
 
+	void set(T value) { Value::value = value; /* TODO: bounds check */ }
 	void reset() { value = begin; }
 
 	// returns current value
@@ -62,7 +63,7 @@ private:
 	void inc()
 	{
 		value += diff;
-		if ( begin < end ? value > end : value < end )
+		if ( begin < end ? value >= end+diff : value <= end+diff )	// +diff for float-values
 				value = begin;
 	}
 };
