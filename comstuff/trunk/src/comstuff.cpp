@@ -4,8 +4,8 @@
 #include "comstuff.h"
 
 
-char app_title[] = "COM Stuff v0.4";
-char app_about[] = "03.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
+char app_title[] = "COM Stuff v0.6";
+char app_about[] = "06.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
 
 
 bool idle = true;
@@ -34,6 +34,7 @@ int time_left;
 
 // packets data
 Value<int> zero_or_one(0, 1, 1);
+Value<double> speed(18.0, 18.1, 0.1);
 Value<double> course(0, 359.9, 0.1);
 Value<double> depth(0, 100, 1.0);
 
@@ -224,6 +225,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				// reset all global params
 				zero_or_one.reset();
+				speed.reset();
 				course.set(355.0);
 				depth.reset();
 
@@ -267,7 +269,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		WriteFile(comH, s, strlen(s), &c, 0);
 
 		// $EPVTG
-		sprintf(s, "$EPVTG,,,,,14.%d,N,15.%d,K,A*", zero_or_one(), zero_or_one());
+		sprintf(s, "$EPVTG,,,,,%.1f,N,%.1f,K,A*", speed(), speed() * 1.852);
 		calc_crc(s+1);
 		WriteFile(comH, s, strlen(s), &c, 0);
 
@@ -286,9 +288,14 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		calc_crc(s+1);
 		WriteFile(comH, s, strlen(s), &c, 0);
 
+		// $EPDPT
+		sprintf(s, "$EPDPT,%.1f,,*", depth());
+		calc_crc(s+1);
+		WriteFile(comH, s, strlen(s), &c, 0);
+
 		// shift params
 		zero_or_one++;
-		double dd = course();
+		speed++;
 		course++;
 		depth++;
 
