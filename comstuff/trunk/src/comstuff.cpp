@@ -4,8 +4,21 @@
 #include "comstuff.h"
 
 
-char app_title[] = "COM Stuff v0.6.1";
+// application's stuff
+//---------------------
+
+char app_title[] = "COM Stuff v0.7";
 char app_about[] = "13.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
+char app_help[] =
+		"Каждую секунду выдаются 6 предложений (см. выше),\r\n"
+		"где циклически меняются следующие параметры:\r\n"
+		"скорость(VHW),N = 14.0 -> 14.1 с шагом 0.1;\r\n"
+		"скорость(VTG),N = 18.0 -> 18.1 с шагом 0.1;\r\n"
+		"курс(HDT) = 0.0 -> 359.9 с шагом 0.1;\r\n"
+		"курс(HDG) = курс(HDT) - 5.0;\r\n"
+		"глубина(DBT),M = 0.0 -> 100.0 с шагом 1.0;\r\n"
+		"глубина(DPT) = глубина(DBT)."
+		;
 
 
 // program state
@@ -77,17 +90,17 @@ void switchInterface(bool enable)
 }
 
 
-// s must points to char after '$'
-void calc_crc(char *s)
+// s must points to char '$'
+char* calc_crc(char *s)
 {
-	unsigned char crc = *s ++;
+	unsigned char crc = *(++s) ++;
 
 	for (; *s != '*'; s++)
 		crc ^= *s;
 
-	s++;
+	sprintf(++s, "%02X\r\n", crc);
 
-	sprintf(s, "%02X\r\n", crc);
+	return s+4;
 }
 
 
@@ -106,6 +119,24 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		// remember handle
 		::hwnd = hwnd;
+		
+		// font setup for sent data
+		{
+		LOGFONT logfont =
+		{
+			//-13,0,0,0,400,0,0,0,-52,1,2,1,33,"Fixedsys"
+			//-13,0,0,0,400,0,0,0,-52,3,2,1,49,"Courier New"
+			//-12,0,0,0,400,0,0,0,0,3,2,1,49,"Courier New"
+			//-9,0,0,0,400,0,0,0,0,3,2,1,34,"Microsoft Sans Serif"
+			//-11,0,0,0,400,0,0,0,0,3,2,1,34,"Arial"
+			//-11,0,0,0,400,0,0,0,0,3,2,1,49,"Lucida Console"
+			-13,0,0,0,400,0,0,0,0,3,2,1,49,"Lucida Console"		// it's so ugly, but is more appropriate ;)
+		};
+		SendDlgItemMessage(hwnd, IDC_SENT_DATA, WM_SETFONT, (WPARAM)CreateFontIndirect(&logfont), TRUE);
+		}
+
+		// set help string
+		SetDlgItemText(hwnd, IDC_HELP_STRING, app_help);
 
 		// set tooltips
 		TOOLINFO ti;
@@ -282,37 +313,36 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_TIMER:
 		{
 
-		char s[60];
-		DWORD c;
+		char s[600];
+		char *p = s;
+
+		// prepare data:
 
 		// $EPVHW
-		sprintf(s, "$EPVHW,,,,,14.%d,N,,,A*%d\r\n", zero_or_one(), 64+zero_or_one());
-		WriteFile(com_h, s, strlen(s), &c, 0);
-
+		sprintf(p, "$EPVHW,,,,,14.%d,N,,,A*%d\r\n", zero_or_one(), 64+zero_or_one());
+		p += 26;
 		// $EPVTG
-		sprintf(s, "$EPVTG,,,,,%.1f,N,%.1f,K,A*", speed(), speed() * 1.852);
-		calc_crc(s+1);
-		WriteFile(com_h, s, strlen(s), &c, 0);
-
+		sprintf(p, "$EPVTG,,,,,%.1f,N,%.1f,K,A*", speed(), speed() * 1.852);
+		p = calc_crc(p);
 		// $EPHDT
-		sprintf(s, "$EPHDT,%.1f,T*", course());
-		calc_crc(s+1);
-		WriteFile(com_h, s, strlen(s), &c, 0);
-
+		sprintf(p, "$EPHDT,%.1f,T*", course());
+		p = calc_crc(p);
 		// $EPHDG
-		sprintf(s, "$EPHDG,%.1f,,,,*", course(-5.0));
-		calc_crc(s+1);
-		WriteFile(com_h, s, strlen(s), &c, 0);
-
+		sprintf(p, "$EPHDG,%.1f,,,,*", course(-5.0));
+		p = calc_crc(p);
 		// $EPDBT
-		sprintf(s, "$EPDBT,%.1f,f,%.1f,M,%.1f,F*", depth() * 0.305, depth(), depth() * 1.83);
-		calc_crc(s+1);
+		sprintf(p, "$EPDBT,%.1f,f,%.1f,M,%.1f,F*", depth() * 0.305, depth(), depth() * 1.83);
+		p = calc_crc(p);
+		// $EPDPT
+		sprintf(p, "$EPDPT,%.1f,,*", depth());
+		calc_crc(p);
+
+		// send data
+		DWORD c;
 		WriteFile(com_h, s, strlen(s), &c, 0);
 
-		// $EPDPT
-		sprintf(s, "$EPDPT,%.1f,,*", depth());
-		calc_crc(s+1);
-		WriteFile(com_h, s, strlen(s), &c, 0);
+		// show it in main window
+		SetDlgItemText(hwnd, IDC_SENT_DATA, s);
 
 		// shift params
 		zero_or_one++;
@@ -326,6 +356,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			PostMessage(hwnd, WM_COMMAND, (BN_CLICKED << 16) | IDC_START, (LPARAM)GetDlgItem(hwnd, IDC_START));
 
 		}
+
 		break;
 
 	//------------------------------------------------
