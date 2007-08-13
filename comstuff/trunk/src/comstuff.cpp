@@ -4,44 +4,67 @@
 #include "comstuff.h"
 
 
-char app_title[] = "COM Stuff v0.6";
-char app_about[] = "06.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
+char app_title[] = "COM Stuff v0.6.1";
+char app_about[] = "13.08.2007 by fnt0m32 'at' gmail.com\nHave fun!";
 
+
+// program state
+//---------------
 
 bool idle = true;
 
-const int timer_elapse = 1000;
 
+// COM port
+//----------
+
+// system numbers
 #define COM_MAX_COUNT 8
 char com_list[COM_MAX_COUNT];
 int com_list_count = 0;
+
+// speed
 int com_speed[] = {CBR_110,CBR_300,CBR_600,CBR_1200,CBR_2400,CBR_4800,CBR_9600,CBR_14400,CBR_19200,CBR_38400,CBR_56000,CBR_57600,CBR_115200,CBR_128000,CBR_256000};
 int com_speed_count = 15;
 const int com_speed_default = 5;
 
-int com_buffer_in =  1024 *4;
+// parity
+char *com_parity[] = {"No", "Even", "Mark", "Odd", "Space"};
+const int com_parity_default = 0;
+
+// stop-bits
+char *com_stopbits[] = {"1", "1.5", "2"};
+const int com_stopbits_default = 0;
+
+// driver's buffers
+int com_buffer_in  = 1024 *4;
 int com_buffer_out = 1024 *4;
 
-HANDLE comH;
-
-// can fuck me later, but this studio has fucked me already! why in 2003 it ...?
-char *parity[] = {"No", "Even", "Mark", "Odd", "Space"};
-char *stopbits[] = {"1", "1.5", "2"};
+// system handle
+HANDLE com_h;
 
 
-// time left
+// time & timer
+//--------------
+
+const int time_period = 1000;	// in ms
 int time_left;
 
+
 // packets data
+//--------------
+
 Value<int> zero_or_one(0, 1, 1);
 Value<double> speed(18.0, 18.1, 0.1);
 Value<double> course(0, 359.9, 0.1);
 Value<double> depth(0, 100, 1.0);
 
 
-// window stuff
+// window's stuff
+//----------------
+
 HWND hwnd;	// main dialog window
 HWND hTT;	// tooltip window
+
 
 
 void switchInterface(bool enable)
@@ -77,6 +100,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 	switch (uMsg)
 	{
+
 	//------------------------------------------------
 	case WM_INITDIALOG:
 
@@ -96,7 +120,6 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		ti.lpszText = "Выход";
 		SendMessage(hTT, TTM_ADDTOOL, 0, (LPARAM)&ti);
 
-
 		// set title
 		SetWindowText(hwnd, app_title);
 
@@ -106,7 +129,6 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		// find COM ports
 		strcpy(s, "\\\\.\\COM");
-		
 		for (int i=0; i<8; i++)
 		{
 			sprintf(s+7, "%d", i+1);
@@ -134,8 +156,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		}
 
 		// set default port
-		if (com_list_count)
-			SendDlgItemMessage(hwnd, IDC_PORT, CB_SETCURSEL, 0, 0);
+		SendDlgItemMessage(hwnd, IDC_PORT, CB_SETCURSEL, 0, 0);
 
 		// init speed combo box
 		for (int i=0; i<com_speed_count; i++)
@@ -149,17 +170,17 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		// init parity combo box
 		for (int i=0; i<5; i++)
-			SendDlgItemMessage(hwnd, IDC_PARITY, CB_ADDSTRING, 0, (LPARAM)parity[i]);
+			SendDlgItemMessage(hwnd, IDC_PARITY, CB_ADDSTRING, 0, (LPARAM)com_parity[i]);
 
 		// set default parity
-		SendDlgItemMessage(hwnd, IDC_PARITY, CB_SETCURSEL, 0, 0);
+		SendDlgItemMessage(hwnd, IDC_PARITY, CB_SETCURSEL, com_parity_default, 0);
 
 		// init stopbits combo box
 		for (int i=0; i<3; i++)
-			SendDlgItemMessage(hwnd, IDC_STOPBITS, CB_ADDSTRING, 0, (LPARAM)stopbits[i]);
+			SendDlgItemMessage(hwnd, IDC_STOPBITS, CB_ADDSTRING, 0, (LPARAM)com_stopbits[i]);
 
 		// set default stopbit
-		SendDlgItemMessage(hwnd, IDC_STOPBITS, CB_SETCURSEL, 0, 0);
+		SendDlgItemMessage(hwnd, IDC_STOPBITS, CB_SETCURSEL, com_stopbits_default, 0);
 
 		break;
 
@@ -176,9 +197,9 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			//------------------------------------------
 			{
 				KillTimer(hwnd, 1);
-				CloseHandle(comH);
+				CloseHandle(com_h);
 
-				// set new button caption
+				// set button's caption
 				SetDlgItemText(hwnd, IDC_START, "Старт");
 
 				switchInterface(true);
@@ -196,17 +217,17 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				// try to open selected COM port
 				sprintf(s, "\\\\.\\COM%d", com_list[ SendDlgItemMessage(hwnd, IDC_PORT, CB_GETCURSEL, 0, 0) ]);
-				comH = CreateFile(s, GENERIC_READ|GENERIC_WRITE, 0, 0, OPEN_EXISTING, 0/*FILE_FLAG_OVERLAPPED*/, 0);
-				if (comH == INVALID_HANDLE_VALUE)
+				com_h = CreateFile(s, GENERIC_READ|GENERIC_WRITE, 0, 0, OPEN_EXISTING, 0/*FILE_FLAG_OVERLAPPED*/, 0);
+				if (com_h == INVALID_HANDLE_VALUE)
 				{
 					MessageBox(hwnd, "Не могу открыть СОМ-порт.", "Ошибка", MB_OK|MB_ICONERROR);
 					break;
 				}
 
 				// set queue length
-				SetupComm(comH, com_buffer_in, com_buffer_out);
+				SetupComm(com_h, com_buffer_in, com_buffer_out);
 				// set speed
-				GetCommState(comH, &dcb);
+				GetCommState(com_h, &dcb);
 				dcb.BaudRate = com_speed[SendDlgItemMessage(hwnd, IDC_SPEED, CB_GETCURSEL, 0, 0)];
 				// set parity
 				dcb.Parity = (BYTE)SendDlgItemMessage(hwnd, IDC_PARITY, CB_GETCURSEL, 0, 0);
@@ -215,13 +236,13 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				// set byte size
 				dcb.ByteSize = 8;
 				// set it up
-				SetCommState(comH, &dcb);
+				SetCommState(com_h, &dcb);
 
 				// set timeouts
-				GetCommTimeouts(comH, &cto);
+				GetCommTimeouts(com_h, &cto);
 				cto.WriteTotalTimeoutMultiplier = 10;
 				cto.WriteTotalTimeoutConstant = 2000;
-				SetCommTimeouts(comH, &cto);
+				SetCommTimeouts(com_h, &cto);
 
 				// reset all global params
 				zero_or_one.reset();
@@ -230,9 +251,9 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				depth.reset();
 
 				// start timer
-				SetTimer(hwnd, 1, timer_elapse, 0);
+				SetTimer(hwnd, 1, time_period, 0);
 
-				// set new button caption
+				// set button's caption
 				SetDlgItemText(hwnd, IDC_START, "Стоп");
 
 				
@@ -266,32 +287,32 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		// $EPVHW
 		sprintf(s, "$EPVHW,,,,,14.%d,N,,,A*%d\r\n", zero_or_one(), 64+zero_or_one());
-		WriteFile(comH, s, strlen(s), &c, 0);
+		WriteFile(com_h, s, strlen(s), &c, 0);
 
 		// $EPVTG
 		sprintf(s, "$EPVTG,,,,,%.1f,N,%.1f,K,A*", speed(), speed() * 1.852);
 		calc_crc(s+1);
-		WriteFile(comH, s, strlen(s), &c, 0);
+		WriteFile(com_h, s, strlen(s), &c, 0);
 
 		// $EPHDT
 		sprintf(s, "$EPHDT,%.1f,T*", course());
 		calc_crc(s+1);
-		WriteFile(comH, s, strlen(s), &c, 0);
+		WriteFile(com_h, s, strlen(s), &c, 0);
 
 		// $EPHDG
 		sprintf(s, "$EPHDG,%.1f,,,,*", course(-5.0));
 		calc_crc(s+1);
-		WriteFile(comH, s, strlen(s), &c, 0);
+		WriteFile(com_h, s, strlen(s), &c, 0);
 
 		// $EPDBT
 		sprintf(s, "$EPDBT,%.1f,f,%.1f,M,%.1f,F*", depth() * 0.305, depth(), depth() * 1.83);
 		calc_crc(s+1);
-		WriteFile(comH, s, strlen(s), &c, 0);
+		WriteFile(com_h, s, strlen(s), &c, 0);
 
 		// $EPDPT
 		sprintf(s, "$EPDPT,%.1f,,*", depth());
 		calc_crc(s+1);
-		WriteFile(comH, s, strlen(s), &c, 0);
+		WriteFile(com_h, s, strlen(s), &c, 0);
 
 		// shift params
 		zero_or_one++;
