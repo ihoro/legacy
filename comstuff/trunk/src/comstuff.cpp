@@ -313,7 +313,7 @@ INT_PTR __stdcall DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_TIMER:
 		{
 
-		char s[600];
+		char s[160];	// i think it's enough :)
 		char *p = s;
 
 		// prepare data:
