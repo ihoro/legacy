@@ -1,0 +1,200 @@
+#!/bin/sh
+#
+# $Id: om_make_ignored_list 172 2008-03-03 22:11:29Z phantom $
+#
+# om_make_ignored_list - Find not versioned files and fill svn:ignore.
+#
+# Usage:
+#   om_make_ignored_list [/path/to/wc]
+#
+# If no path to working copy, then current directory is treated as root of
+# working copy.
+#
+# It looks in working copy and every its subdirectory for files that are
+# not in repository and writes them into ignored list, which is property
+# 'svn:ignore' of particular directory. So, you won't get big list of
+# unversioned files by using 'svn'. The property 'svn:ignore' can be more
+# convenient, and this script can help in filling such property in every
+# directory of your working copy.
+#
+# Note: If you need to add or import something that is ignored you can use
+#       '--no-ignore' option of 'svn' and after commiting addition of new
+#       files you can refresh ignored list by it.
+#
+
+. om_common
+
+
+# you can define the following debug flag in your environment
+# OM_MAKE_IGNORED_LIST_DEBUG=1
+
+# show debug info
+#----------------
+debug() \
+{
+    if [ $OM_MAKE_IGNORED_LIST_DEBUG ]; then
+        echo DEBUG: $1
+    fi
+}
+
+
+# get root of working copy
+#-------------------------
+if [ $# -eq 0 ]; then
+    wc_root=`pwd`
+else
+    wc_root=$1
+fi
+string_value=$wc_root
+trim_trailing_slash
+wc_root=$string_value
+debug "wc_root = $wc_root"
+
+
+# check if it's real working copy
+#---------------------------------
+if ! svn info $wc_root/ > /dev/null; then
+    debug "it's not a real working copy"
+    exit 1
+fi
+
+
+# store list of files from repository in temporary file
+#------------------------------------------------------
+random_string="/tmp/om_make_ignored_list_repos_list_"
+chars_count=20
+gen_random_string
+repos_list=$random_string
+debug "repos_list = $repos_list"
+svn list -R $wc_root/ > $repos_list
+
+
+# function to check one defined file
+#-----------------------------------
+check_file() \
+{
+    local filename=$1
+    local is_dir=0
+
+    # [in] $1 - filename to check, it must be full path, but like strictly subpath of wc_root
+    # [out] - can be one of the following exit status:
+    #        0 - not ignored file (coz, it's in repository)
+    #        1 - directory that must be digged
+    #        2 - ignored file
+
+    debug "check_file($1)"
+
+
+    # check if it's directory
+    #------------------------
+    if [ -d $wc_root/$1 ]; then
+        filename=$1/
+        is_dir=1
+    fi
+
+
+    # check this file against repository
+    #-----------------------------------
+    result=` \
+        awk -v fn=$filename -v is_dir=$is_dir \
+        ' \
+            BEGIN { found = 0; }
+
+            # if file is in repository
+            fn == $0 \
+            {
+                found = 1;
+                if (is_dir)
+                    print 1;
+                else
+                    print 0;
+                exit 0;
+            }
+
+            # if file is not in repository
+            END \
+            {
+                if (!found)
+                    print 2;
+            }
+        ' $repos_list \
+    `
+
+    debug "check_file($1) returned $result"
+    return $result
+}
+
+
+# function to find ignored files in defined directory and its subs
+#-----------------------------------------------------------------
+dig() \
+{
+    local ignored_list
+    local filename
+    local filename_only
+    local status
+
+    # [in] $1 - directory to dig in
+
+    debug "dig($1)"
+
+
+    # create temporary file to store ignored list in it
+    #--------------------------------------------------
+    random_string="/tmp/om_make_ignored_list_ignored_list_"
+    chars_count=20
+    gen_random_string
+    ignored_list=$random_string
+    touch $ignored_list
+    debug "ignored_list = $ignored_list"
+
+
+    # look in whole directory
+    #------------------------
+    for filename in `ls -a $wc_root/$1`
+    do
+        if [ $filename = "." -o $filename = ".." -o $filename = ".svn" ]; then
+            debug "file '$filename' was skipped"
+            continue
+        fi
+
+        filename_only=$filename
+        if [ $1 ]; then
+            filename=$1/$filename
+        fi
+        check_file $filename
+        status=$?
+
+        if [ $status -eq 2 ]; then
+            echo $filename_only >> $ignored_list
+            debug "file '$filename_only' was added into ignored list"
+        fi
+
+        if [ $status -eq 1 ]; then
+            debug "digging '$filename'..."
+            dig $filename
+        fi
+    done
+
+
+    # set property for this directory
+    #--------------------------------
+    svn pset svn:ignore -F $ignored_list $wc_root/$1
+    debug "dig($1) set ignore property"
+
+
+    # delete temporary files
+    #-----------------------
+    rm -f $ignored_list
+}
+
+
+# find ignored files and set properties for directories
+#------------------------------------------------------
+dig ""          # begin from root of working copy
+
+
+# delete temporary files
+#-----------------------
+rm -f $repos_list
+

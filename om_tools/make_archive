@@ -1,0 +1,25 @@
+#!/bin/sh
+# $Id: make_archive 78 2007-04-15 15:43:47Z phantom $
+
+
+of="om_tools.tbz2"
+
+mkdir tmp_dir
+rm -f $of
+cp om* tmp_dir
+cd tmp_dir
+
+for f in `ls om*`
+do
+	sed 's/phantom/om/' $f > tmp_file
+	mv tmp_file $f
+	chmod ug+x $f
+done
+
+tar -cvjf $of om*
+
+mv $of ..
+cd ..
+rm -Rf tmp_dir
+
+echo Archive has been done.

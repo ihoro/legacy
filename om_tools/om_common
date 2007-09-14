@@ -1,0 +1,37 @@
+# $Id: om_common 74 2007-04-15 14:11:35Z phantom $
+#
+# om_common - common parameters/functions for om_tools
+#
+
+
+# defaults
+#---------
+OM_DEF_SCRIPT_NAME=".om_restore"
+
+
+# trims trailing slash in filename
+#---------------------------------
+trim_trailing_slash() \
+{
+	string_value=` \
+		echo $string_value | \
+		awk '/\/$/ {print substr($0,1,length-1); exit 0} { print $0 }' \
+	`
+}
+
+
+# generates random string
+#------------------------
+gen_random_string() \
+{
+	local chars_count
+	local char
+
+	#random_string="" # you can init it before
+
+	for char in `jot -rcn $chars_count A Z`
+	do
+        	random_string=$random_string$char
+	done
+}
+

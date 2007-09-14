@@ -1,0 +1,113 @@
+#!/bin/sh
+#
+# $Id: om_checkin 122 2007-06-17 11:43:36Z phantom $
+#
+# om_checkin - Checkin changes and update om&il after.
+#
+# It will run 'svn ci' with your default editor for message editing.
+# After it will collect info about owner and modes for each file by
+# 'om_collect', update 'svn:ignore' properties in your working copy
+# and checkin again.
+#
+# Usage:
+#   om_checkin [/path/to/wc]
+#
+# If there are no parameters then it will treat current directory
+# as root of working copy.
+#
+
+
+. om_common
+
+
+# get root of working copy
+#-------------------------
+if [ $# -gt 0 ]; then
+    wc_root=$1
+else
+    wc_root=`pwd`
+fi
+string_value=$wc_root
+trim_trailing_slash
+wc_root=$string_value
+
+
+# check if it's realy working copy
+#---------------------------------
+if ! svn info $wc_root/ > /dev/null; then
+    exit 1
+fi
+
+
+# generate name of temporary file
+#--------------------------------
+random_string="/tmp/om_checkin_om_restore_"
+chars_count=20
+gen_random_string
+script_name=$random_string
+touch $script_name
+chmod +x $script_name
+
+
+# collect files' info
+# it collects info about changed files only,
+# coz after 'svn ci' it will loose its original permissions
+# (if use svn:keywords)
+#----------------------------------------------------------
+svn st -q $wc_root/ | \
+awk -v sn=$script_name -v wcr=$wc_root ' \
+{
+    # get filename
+    fn = substr($0, 8, length-7);
+
+    # put filename
+    cmd = "echo -n \"fn=" fn "; \" >> " sn;
+    system(cmd);
+
+    # put info about owner and mode
+    cmd = "stat -f \"chown %Su:%Sg \\$fn; chmod %Mp%Lp \\$fn\" " wcr fn " >> " sn;
+    system(cmd);
+}
+'
+
+
+# do check in
+#------------
+svn up $wc_root/
+if ! svn ci $wc_root/; then
+    # svn has exited with error
+    # rm -f $script_name # left for debugging
+    exit 2
+fi
+
+
+# restore permissions of changed files
+#-------------------------------------
+svn up $wc_root/
+$script_name
+
+
+# collect new owners and modes list
+#----------------------------------
+om_collect $wc_root/
+
+
+# refresh ignored list
+#---------------------
+om_make_ignored_list $wc_root/
+
+
+# check it in
+#------------
+svn ci -m "Updated om & il." $wc_root/
+svn up $wc_root/
+
+
+# set default mode of script file
+#--------------------------------
+chmod o= $wc_root/$OM_DEF_SCRIPT_NAME
+
+
+# delete temporary files
+#-----------------------
+rm -f $script_name

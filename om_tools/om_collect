@@ -1,0 +1,168 @@
+#!/bin/sh
+#
+# $Id: om_collect 258 2011-10-31 16:58:11Z phantom $
+#
+# om_collect - Collect Owners and Modes of files.
+#
+# It collects information about owner,group,modes of files and generates
+# certain script provides simple way to set files' modes. It was made for
+# using in conjunction with Subversion. So, you can keep modes of files
+# in one file that is the script that can restore all this modes. And this
+# script is also kept into Subversion repository.
+#
+# Usage:
+#   om_collect [/path/to/wc [script-name]]
+#   om_collect /path/to/repos script-name /path/to/root/of/hierarchy
+#
+# You can use third ways to run it:
+#
+# 1. Before run this script you must 'cd' into root of working copy and
+#    don't provide any parameter.
+# 2. You must specify full path to root of working copy by first parameter.
+# 3. You can specify path to repository and path to root of hierarchy
+#    ( latter can be not a working copy ). So, file listing will be got
+#    from repository also, but real file permissions will be got from
+#    defined hierarchy. Result will be placed by second path.
+# If there're no parameters it will treat current directory as root of
+# working copy (case #1).
+#
+#
+# It'll places generated script into root of working copy. Instead default
+# you can provide name of output file by second parameter.
+#
+# If you don't have the script in your working copy then it will add it
+# by 'svn add' and set up some properties on it. This is right only for
+# first and second cases of launching, not for case #3.
+#
+# Note: List of files are got from repository, so, if you add some file to
+# your working copy by 'svn add' then you will need to commit it before use
+# this script, because it won't be appeared in listing.
+#
+
+
+. om_common
+
+
+# get root of working copy
+#-------------------------
+if [ $# -eq 0 ]; then
+	wc_root=`pwd`
+else
+	wc_root=$1
+fi
+string_value=$wc_root
+trim_trailing_slash
+wc_root=$string_value
+
+
+# check if it's realy working copy
+#---------------------------------
+if ! svn info $wc_root/ > /dev/null; then
+	exit 1
+fi
+
+
+# check for third parameter (case #3)
+#------------------------------------
+if [ $# -eq 3 ]; then
+	case3=1
+else
+	case3=0
+fi
+
+
+# get output file name
+#---------------------
+if [ $# -ge 2 ]; then
+	script_name=$2
+else
+	script_name=$OM_DEF_SCRIPT_NAME
+fi
+if [ $case3 -eq 0 ]; then
+	output_file=$wc_root/$script_name
+	real_root=$wc_root
+else
+	string_value=$3
+	trim_trailing_slash
+	h_root=$string_value
+	output_file=$h_root/$script_name
+	real_root=$h_root
+fi
+
+
+# add file if it isn't yet
+#-------------------------
+if [ $case3 -eq 0  -a  ! -f $output_file ]; then
+	touch $output_file
+	chmod +x $output_file
+        svn add $output_file
+        svn propset svn:executable on $output_file
+        svn propset svn:eol-style native $output_file
+        svn propset svn:keywords Id $output_file
+fi
+
+
+# reset access to file
+#----------------------
+chmod go= $output_file
+
+
+# divert output to file
+#----------------------
+exec > $output_file
+
+
+# fill header of file
+#--------------------
+echo "#!/bin/sh"
+echo "# \$Id\$"
+echo "#"
+echo "# $script_name - Restore Owners and Modes of files."
+echo "#"
+echo "# Usage:"
+echo "#   $script_name [/path/to/root/of/hierarchy]"
+echo "#"
+echo "# You can use two ways to run it:"
+echo "# 1. Current directory must be the root of hierarchy."
+echo "# 2. You must specify full path to root of hierarchy by first parameter."
+echo "#"
+echo "# Note: Usually this file are placed in root of hierarchy."
+echo "#"
+echo
+echo
+echo "# go to root of hierarchy"
+echo "#------------------------"
+echo "if [ \$# -gt 0 ]; then"
+echo "    cd \$1"
+echo "fi"
+echo
+echo
+echo "# restore owners and modes of each file"
+echo "#--------------------------------------"
+echo "chmod -R go= .svn"
+
+
+# collect files' info
+#--------------------
+svn list -R $wc_root/ | \
+awk -v wcr=$real_root ' \
+{
+	fn = "fn=" $0;
+	printf fn;
+	for (i=0; i < (60-length(fn)); i++)
+		printf " ";
+	printf ";";
+	cmd = "stat -nf \"chown %Su:%Sg \\$fn; chmod %Mp%Lp \\$fn\" " wcr "/" $0;
+	system(cmd);
+
+	# restrict access to .svn directories
+	cmd = "[ -d " wcr "/" $0 "/.svn ] && echo -n \"; chmod -R go= \\${fn}.svn\""
+	system(cmd);
+
+	printf "\n";
+}
+'
+
+
+exit 0
+
