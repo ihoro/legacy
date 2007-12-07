@@ -37,6 +37,7 @@ HANDLE hThread;
 DWORD ThreadID;
 
 // COM-port
+const int COM_LIST_MAX_NUM = 24;
 #define COM_IN_BUFFER_SIZE		20480
 #define COM_OUT_BUFFER_SIZE		20480
 char comBuffer[COM_IN_BUFFER_SIZE];
@@ -774,7 +775,7 @@ void Cbnu_ctrlDlg::OnBnClickedSetup()
 	{
 		// generate COM-list
 		m_com_list.RemoveAll();
-		for (int i=1; i<=4; i++)
+		for (int i=1; i<=COM_LIST_MAX_NUM; i++)
 		{
 			s.Format("\\\\.\\COM%d",i);
 			if ((h = CreateFile(s,GENERIC_READ|GENERIC_WRITE,0,0,OPEN_EXISTING,FILE_FLAG_OVERLAPPED,0)) != INVALID_HANDLE_VALUE)

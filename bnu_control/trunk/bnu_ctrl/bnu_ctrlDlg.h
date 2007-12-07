@@ -112,8 +112,9 @@ extern Cbnu_ctrlDlg *mdlg;
 // last selected device
 #define DEVICE	mdlg->device
 
-// COM-port speed array
+// COM-port
 extern int comSpeed[];
+extern const int COM_LIST_MAX_NUM;
 
 // labels for common request buttons
 extern CString TITLE_GET;					// label for 'get' buttons
