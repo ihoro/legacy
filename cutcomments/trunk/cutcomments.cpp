@@ -200,7 +200,9 @@ int main(int argc, char* argv[])
 {
   if (1 == argc)
   {
-    printf("Usage: cutcomments filename\r\n");
+    printf("Usage: ");
+    printf(argv[0]);
+    printf(" filename\r\n");
     return 1;
   }
   unsigned int nErrors = 0;
