@@ -1,0 +1,54 @@
+body, .like_body
+{
+	font-size: 10pt;
+	color: deepskyblue;
+	font-family: Verdana;
+}
+
+.title
+{
+	display: block;
+	font-size: 14pt;
+	letter-spacing: 4pt;
+	text-align: center;
+	margin-top: 15pt;
+	margin-bottom: 15pt;
+}
+
+a
+{
+	color: powderblue;
+	font-style: normal;
+	text-decoration: none;
+}
+
+a:Hover
+{
+	color: #00ff00;
+}
+
+.edit_like_static
+{
+	border: none;
+	padding: 3px;
+	background-color: black;
+	color: lightgreen;
+	font-family: Tahoma;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.push_button
+{
+	border: deepskyblue thin solid;
+	background-color: deepskyblue;
+	color: black;
+	font-family: Tahoma;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.fl_matrix
+{
+	border: #4a4c4a thin solid;
+}
