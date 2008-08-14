@@ -73,7 +73,9 @@ icon_lf						LOGFONT <-11,0,0,0,400,0,0,0,0,3,2,1,34,"Tahoma">
 transparent					dd 0
 
 err_title					db "Keyboard Layout Indicator",0
-err_broken_command_line		db "Command line parsing error.",0
+err_broken_command_line		db "Command line parsing error.",10
+							db "Usage: r,g,b R,G,B {bold=0/1} {lower-case=0/1} {transparent_bg=0/1}"
+							db 0
 
 
 ;-------------------------------------------------------------
