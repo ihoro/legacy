@@ -1,3 +1,5 @@
+// $Id$
+
 function Bugger() {
   this.main;
   this.id_input;
