@@ -1,5 +1,3 @@
-// $Id$
-
 function Bugger() {
   this.main;
   this.id_input;
@@ -12,7 +10,7 @@ function Bugger() {
       return false;
 
     main = document.createElement("div");
-    main.appendChild(document.createTextNode("BuggeR version -0.7"));
+    main.appendChild(document.createTextNode("BuggeR version -0.6"));
     main.id = "bugger";
 
     var e;
@@ -116,7 +114,7 @@ function Bugger() {
         bugger.log("Done.");
     };
     var status_id = status_input.options[status_input.selectedIndex].value;
-    var url = "http://zeusdesk.com/eventum-2.2/popup.php?cat=new_status";
+    var url = "http://opentopit.com/eventum/popup.php?cat=new_status";
     url += "&iss_id=" + id;
     url += "&new_sta_id=" + status_id;
     request.open("GET", url, true);
