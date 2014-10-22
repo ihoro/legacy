@@ -10,7 +10,7 @@ function Bugger() {
       return false;
 
     main = document.createElement("div");
-    main.appendChild(document.createTextNode("BuggeR version -0.6"));
+    main.appendChild(document.createTextNode("BuggeR version -0.5"));
     main.id = "bugger";
 
     var e;
@@ -28,7 +28,7 @@ function Bugger() {
 
     e = document.getElementsByName("new_status");
     if (e.length == 0) {
-      alert('You should first open details of any Zeusdesk issue.');
+      alert('You should first open details of any BPMTrack issue.');
       return false;
     }
     status_input = e[0].cloneNode(true);
@@ -114,7 +114,7 @@ function Bugger() {
         bugger.log("Done.");
     };
     var status_id = status_input.options[status_input.selectedIndex].value;
-    var url = "http://opentopit.com/eventum/popup.php?cat=new_status";
+    var url = document.location.href.replace(/view\.php\?.*/, "") + "popup.php?cat=new_status";
     url += "&iss_id=" + id;
     url += "&new_sta_id=" + status_id;
     request.open("GET", url, true);
