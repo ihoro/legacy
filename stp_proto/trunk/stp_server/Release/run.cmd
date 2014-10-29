@@ -1,0 +1,1 @@
+stp_server.exe f:\games\_install
