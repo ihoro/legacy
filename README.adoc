@@ -1,0 +1,15 @@
+# legacy
+My personal nostalgia - projects and snippets since the 90s
+
+Not everything survived and not every piece can be published.
+I treat this GitHub space as another backup media.
+
+
+## kli/
+kli - keyboard layout indicator
+
+As I remember it was the time of counting each MB of your RAM :) And I do not
+remember why, but default Windows' indicator was not good enough. And some
+third party software like Keyboard Ninja (is it a correct name?) was quite a
+memory consumer. And such a tiny 5 KB executable was funny to have. So,
+probably the key idea behind this project was learning and "why not?" :-D
