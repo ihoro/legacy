@@ -20,6 +20,12 @@ some special keys on my keyboard.
 Some data parsing tool used for implementation and work with specific navigation
 hardware.  It reminds me taht NMEA standard is involved here.
 
+## ffc
+
+FF Catcher. It was a tool implemented for engineers who were working on design
+and implementation of navigation hardware. It communicates with specific
+hardware via UART (COM) port. And it's based on usual Win32 GUI.
+
 ## ix85
 
 It looks I had an idea to build some lib by gathering together repeating code
