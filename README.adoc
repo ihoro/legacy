@@ -28,6 +28,11 @@ FF Catcher. It was a tool implemented for engineers who were working on design
 and implementation of navigation hardware. It communicates with specific
 hardware via UART (COM) port. And it's based on usual Win32 GUI.
 
+## f_mixer
+
+It was a changed version of built-in FreeBSD mixer program. I changed its output
+what was used by Conky on my desktop to show audio levels.
+
 ## ix85
 
 It looks I had an idea to build some lib by gathering together repeating code
