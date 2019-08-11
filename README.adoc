@@ -22,6 +22,10 @@ ays - Are You Sure?
 Some simple program to shutdown, reboot or log off. It was usually binded to
 some special keys on my keyboard.
 
+## bmp2array
+
+I do not remember why I needed such a silly conversion :)
+
 ## df
 
 Some data parsing tool used for implementation and work with specific navigation
