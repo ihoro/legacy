@@ -33,6 +33,11 @@ FF Catcher. It was a tool implemented for engineers who were working on design
 and implementation of navigation hardware. It communicates with specific
 hardware via UART (COM) port. And it's based on usual Win32 GUI.
 
+## flinx
+
+I guess it was a play with Java Swing, some simple GUI program about favourite
+web links.
+
 ## f_mixer
 
 It was a changed version of built-in FreeBSD mixer program. I changed its output
