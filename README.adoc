@@ -26,6 +26,12 @@ some special keys on my keyboard.
 
 I do not remember why I needed such a silly conversion :)
 
+## bugger
+
+It was a small bookmarklet what helped developers & QA to deal with chore
+actions within specific issue tracking system. As I remember it was Eventum
+from Sun Microsystems.
+
 ## comstuff
 
 It was communicating with specific navigation related hardware via UART (COM) port.
