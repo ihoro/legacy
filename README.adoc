@@ -26,6 +26,10 @@ some special keys on my keyboard.
 
 I do not remember why I needed such a silly conversion :)
 
+## cutcomments
+
+Yes, it cuts comments from a C/C++ source code file.
+
 ## df
 
 Some data parsing tool used for implementation and work with specific navigation
