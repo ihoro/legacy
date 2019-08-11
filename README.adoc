@@ -33,6 +33,10 @@ FF Catcher. It was a tool implemented for engineers who were working on design
 and implementation of navigation hardware. It communicates with specific
 hardware via UART (COM) port. And it's based on usual Win32 GUI.
 
+## flines
+
+HTML/CSS & JavaScript based implementation of a well known game "Lines".
+
 ## flinx
 
 I guess it was a play with Java Swing, some simple GUI program about favourite
