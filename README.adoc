@@ -31,6 +31,12 @@ I do not remember what it does, it looks I was not intended to be its user.
 
 Runs a program with Win GUI window maximized.
 
+## se
+
+se - script executor.
+Talks to specific navigation hardware via UART (COM) port, receives respective
+responses and builds a report. Its primary use was navigation hardware testing.
+
 ## sleep
 
 I guess it was used in a big project for some bat files logic.
