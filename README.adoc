@@ -1,8 +1,9 @@
 # legacy
 
-My personal nostalgia - projects and snippets since the 90s
-Not everything survived and not every piece can be published.
-I treat this GitHub space as another backup media.
+My personal nostalgia - projects and snippets since the 90s. Not everything
+survived and not every piece can be published. Correct file creation or change
+timestamps are lost, but, fortunately, sometimes I used comments with a date
+or a year within code itself.
 
 ## avg
 
