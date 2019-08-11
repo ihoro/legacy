@@ -4,10 +4,16 @@ My personal nostalgia - projects and snippets since the 90s
 Not everything survived and not every piece can be published.
 I treat this GitHub space as another backup media.
 
+## ays
+
+ays - Are You Sure?
+Some simple program to shutdown, reboot or log off. It was usually binded to
+some special keys on my keyboard.
+
 ## df
 
-Some data parsing tool used for implementation and work with specific navigation hardware.
-It reminds me taht NMEA standard is involved here.
+Some data parsing tool used for implementation and work with specific navigation
+hardware.  It reminds me taht NMEA standard is involved here.
 
 ## kli
 
