@@ -63,3 +63,10 @@ responses and builds a report. Its primary use was navigation hardware testing.
 ## sleep
 
 I guess it was used in a big project for some bat files logic.
+
+## vbsfilter
+
+A Doxygen filter to support ASP code documentation. It was created to help with
+docs generation on a commercial project. As I remember, I intentionally decided
+to build it with Perl, just to learn Perl a little. Well, it's fun, but... the
+resulting code is quite cryptic :)
