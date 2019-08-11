@@ -66,6 +66,11 @@ responses and builds a report. Its primary use was navigation hardware testing.
 
 I guess it was used in a big project for some bat files logic.
 
+## updater23x, updater24x
+
+I guess it was something unfinished or not used much. And it was about updating
+programs like patching or something.
+
 ## vbsfilter
 
 A Doxygen filter to support ASP code documentation. It was created to help with
