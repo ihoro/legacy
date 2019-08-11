@@ -103,6 +103,12 @@ responses and builds a report. Its primary use was navigation hardware testing.
 
 I guess it was used in a big project for some bat files logic.
 
+## stp_proto
+
+It was named after FTP. It was a project to learn networking. It provides a server
+what can serve a given directory and a client who can connect to it, traverse
+directory structure and download files from remote sever. It was 2005's, I guess.
+
 ## updater23x, updater24x
 
 I guess it was something unfinished or not used much. And it was about updating
