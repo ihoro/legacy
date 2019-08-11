@@ -7,6 +7,11 @@ or a year within code itself. Something was created before I started to use
 any VCS, but most of the stuff came from old Subversion repositories I found
 in my archives.
 
+## appxxn
+
+It was a great help for my team mates what saved nerves and man-hours a lot.
+IDA Pro and my favourite OllyDbg were used here.
+
 ## avg
 
 Some play with Microsoft COM technology, as I remember.
