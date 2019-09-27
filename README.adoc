@@ -22,6 +22,14 @@ ays - Are You Sure?
 Some simple program to shutdown, reboot or log off. It was usually binded to
 some special keys on my keyboard.
 
+## _balderdash
+
+Not related to software development directly, but it's about some kind of
+programming. It was a design of additional game zone for one of MUD worlds,
+called Baslderdash. The idea was to help newbies and cover directions to other
+zones by talking to an old traveller and listening to his stories.
+I guess that world exists still, somewhere at balderdash.ru.
+
 ## bmp2array
 
 I do not remember why I needed such a silly conversion :)
