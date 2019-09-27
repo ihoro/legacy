@@ -26,7 +26,7 @@ some special keys on my keyboard.
 
 Not related to software development directly, but it's about some kind of
 programming. It was a design of additional game zone for one of MUD worlds,
-called Baslderdash. The idea was to help newbies and cover directions to other
+called Balderdash. The idea was to help newbies and cover directions to other
 zones by talking to an old traveller and listening to his stories.
 I guess that world exists still, somewhere at balderdash.ru.
 
