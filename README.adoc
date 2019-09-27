@@ -84,6 +84,11 @@ third party software like Keyboard Ninja (is it a correct name?) was quite a
 memory consumer. And such a tiny 5 KB executable was funny to have. So,
 probably the key idea behind this project was learning and "why not?" :-D
 
+## mmh
+
+It was time when I liked to close windows in MS Windows using my mouse middle
+button :)
+
 ## pcalc
 
 Calculates something, but who remembers what. And it's hard to guess from that
