@@ -26,6 +26,10 @@ some special keys on my keyboard.
 
 I do not remember why I needed such a silly conversion :)
 
+## bnu_control
+
+Another navigation hardware related tool.
+
 ## bugger
 
 It was a small bookmarklet what helped developers & QA to deal with chore
