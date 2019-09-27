@@ -43,7 +43,7 @@ Yes, it cuts comments from a C/C++ source code file.
 ## df
 
 Some data parsing tool used for implementation and work with specific navigation
-hardware.  It reminds me taht NMEA standard is involved here.
+hardware.  It reminds me that NMEA standard is involved here.
 
 ## ffc
 
