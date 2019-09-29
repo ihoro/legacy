@@ -44,6 +44,14 @@ It was a small bookmarklet what helped developers & QA to deal with chore
 actions within specific issue tracking system. As I remember it was Eventum
 from Sun Microsystems.
 
+## _childhood
+
+My pascal epoch. "boxpas.rar" was an archive of programs written for DOS.
+"op.rar" archive is about Object Pascal programs, written for Windows.
+Many of the programs are unfinished. But something is complete and even has
+some sort of a distribution prepared, e.g. Japanese Crosswords (JC) for
+MS Windows platform.
+
 ## comstuff
 
 It was communicating with specific navigation related hardware via UART (COM) port.
@@ -137,3 +145,16 @@ A Doxygen filter to support ASP code documentation. It was created to help with
 docs generation on a commercial project. As I remember, I intentionally decided
 to build it with Perl, just to learn Perl a little. Well, it's fun, but... the
 resulting code is quite cryptic :)
+
+
+P.S. I wish I could see my first epoch based on pure classic BASIC. It was a
+set of simple programs, several games (2 or 3 of them were finished and my
+friends even played them), some system related utilities like file commander
+loaded automatically when you insert your 5" floppy disk, etc. And all of them
+were written for ZX Spectrum computer, TR-DOS. Unfortunately, I was so crazy
+about a new computer in our home, IBM compatible one, that I formatted all my
+floppy disks to FAT16 and forgot about reserve copies of my previous programming
+life :( There are ZX Spectrum simulators around what allows you to get back to
+old good games like Nether Earth and others, and it would be a heartbreaking
+moment to run my very first programs, but it's lost in my heart forever :)
+
