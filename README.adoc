@@ -105,6 +105,17 @@ probably the key idea behind this project was learning and "why not?" :-D
 It was time when I liked to close windows in MS Windows using my mouse middle
 button :)
 
+## om_tools
+
+Somewhere in 2007 I concluded that it's very hard to maintain configuration of
+my FreeBSD machines and I need something that would allow me to easily get back
+to the previous working form or simply detect whether I have file changes around.
+Initially it was based on Subversion, and later I moved to Git. But the key idea
+behind om_tools were to keep file owners and modes as is and be able to restore
+them intact. I still have these om_tools keeping an eye on my personal FreeBSD
+hosts. I could use something else but it works for 13+ years and I would better
+invest my time into something else, you know ;)
+
 ## pcalc
 
 Calculates something, but who remembers what. And it's hard to guess from that
