@@ -157,9 +157,9 @@ docs generation on a commercial project. As I remember, I intentionally decided
 to build it with Perl, just to learn Perl a little. Well, it's fun, but... the
 resulting code is quite cryptic :)
 
-##
+## P.S.
 
-P.S. I wish I could see my first epoch based on pure classic BASIC. It was a
+I wish I could see my first epoch based on pure classic BASIC. It was a
 set of simple programs, several games (2 or 3 of them were finished and my
 friends even played them), some system related utilities like file commander
 loaded automatically when you insert your 5" floppy disk, etc. And all of them
